@@ -1,0 +1,48 @@
+{
+  "name": "meiosis",
+  "version": "0.0.1",
+  "description": "Meiosis is the Design System for Mutable Products and Websites",
+  "main": "dist/index.js",
+  "module": "dist/custom-elements/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/custom-elements/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/meiosis/meiosis.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "@stencil/core": "^1.17.3"
+  },
+  "homepage": "https://github.com/mutable/meiosis#readme",
+  "author": "@mutable, @vachi, @AnnaNarim",
+  "bugs": {
+    "url": "https://github.com/mutable/meiosis/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mutable/meiosis.git"
+  },
+  "keywords": [
+    "design",
+    "system"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "25.2.3",
+    "@types/puppeteer": "2.0.1",
+    "jest": "26.0.1",
+    "jest-cli": "26.0.1",
+    "puppeteer": "2.1.1"
+  }
+}
