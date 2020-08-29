@@ -1,4 +1,5 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Element } from '@stencil/core';
+import { HTMLMutTabElement } from '../mut-tabs/mut-tabs';
 
 @Component({
   tag: 'mut-tabs-tab',
@@ -6,13 +7,24 @@ import { Component, Host, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class MutTabsTab {
-  
-  @Prop() title = '';
+
+  @Prop() panel = '';
   @Prop() active = false;
+
+  @Element() host: HTMLMutTabElement;
+
+  onClick () {
+    (async () => {
+      const foundTabs = document.querySelector('mut-tabs');
+      await foundTabs && foundTabs.tabClicked(this.panel);
+    })();
+  }
 
   render() {
     return (
-        <button style={{color: this.active ? 'red':'blue'}}>{this.title}</button>
+      <button class={this.active ? "active" : "inactive"} onClick={() => this.onClick()}>
+        <slot />
+      </button>
     );
   }
 

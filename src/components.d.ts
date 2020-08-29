@@ -7,14 +7,14 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MutTabs {
+        "tabClicked": (panel: string) => Promise<void>;
     }
     interface MutTabsPanel {
         "active": boolean;
-        "title": string;
     }
     interface MutTabsTab {
         "active": boolean;
-        "title": string;
+        "panel": string;
     }
     interface MyComponent {
         /**
@@ -68,11 +68,10 @@ declare namespace LocalJSX {
     }
     interface MutTabsPanel {
         "active"?: boolean;
-        "title"?: string;
     }
     interface MutTabsTab {
         "active"?: boolean;
-        "title"?: string;
+        "panel"?: string;
     }
     interface MyComponent {
         /**

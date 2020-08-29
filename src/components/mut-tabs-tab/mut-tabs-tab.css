@@ -1,3 +1,11 @@
 :host {
   display: block;
 }
+
+.active {
+	color: red;
+}
+
+.inactive {
+	color: blue;
+}

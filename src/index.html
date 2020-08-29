@@ -8,15 +8,15 @@
     <script type="module" src="/build/meiosis.esm.js"></script>
     <script nomodule src="/build/meiosis.js"></script>
   </head>
-  <body>    
+  <body>
     <mut-tabs>
-      <mut-tabs-tab title="tab 1"></mut-tabs-tab>
-      <mut-tabs-tab title="tab 2"></mut-tabs-tab>
-      <mut-tabs-tab title="tab 3"></mut-tabs-tab>
+      <mut-tabs-tab panel="1" slot="tabs">Tab 1</mut-tabs-tab>
+      <mut-tabs-tab panel="2" slot="tabs">Tab 2</mut-tabs-tab>
+      <mut-tabs-tab panel="3" slot="tabs">Tab 3</mut-tabs-tab>
 
-      <mut-tabs-panel name="1">This is panel 1</mut-tabs-panel>
-      <mut-tabs-panel name="2">This is panel 2</mut-tabs-panel>
-      <mut-tabs-panel name="3">This is panel 3</mut-tabs-panel>
+      <mut-tabs-panel tab="1" slot="content">This is panel 1</mut-tabs-panel>
+      <mut-tabs-panel tab="2" slot="content">This is panel 2</mut-tabs-panel>
+      <mut-tabs-panel tab="3" slot="content">This is panel 3</mut-tabs-panel>
     </mut-tabs>
   </body>
 </html>

@@ -1,4 +1,5 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, h, Prop, Element } from '@stencil/core';
+import { HTMLMutTabPanelElement } from '../mut-tabs/mut-tabs';
 
 @Component({
   tag: 'mut-tabs-panel',
@@ -6,15 +7,15 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class MutTabsPanel {
-
-  @Prop() title = '';
   @Prop() active = false;
-  
+
+  @Element() host: HTMLMutTabPanelElement;
+
   render() {
     return (
-      <Host>
-        <slot style={{color: this.active ? 'red':'blue'}}></slot>
-      </Host>
+      <div class={this.active ? "visible" : "invisible"}>
+        <slot />
+      </div>
     );
   }
 

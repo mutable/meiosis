@@ -1,3 +1,11 @@
 :host {
   display: block;
 }
+
+.tabs {
+	display: flex;
+}
+
+.panels {
+	display: block;
+}
