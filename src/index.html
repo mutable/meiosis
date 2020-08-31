@@ -9,6 +9,7 @@
     <script nomodule src="/build/meiosis.js"></script>
   </head>
   <body>
+    <div style="margin: 15px;">Mut Tabs</div>
     <mut-tabs>
       <mut-tabs-tab panel="1" slot="tabs">Tab 1</mut-tabs-tab>
       <mut-tabs-tab panel="2" slot="tabs">Tab 2</mut-tabs-tab>
@@ -18,5 +19,27 @@
       <mut-tabs-panel tab="2" slot="content">This is panel 2</mut-tabs-panel>
       <mut-tabs-panel tab="3" slot="content">This is panel 3</mut-tabs-panel>
     </mut-tabs>
+
+    <div style="margin: 15px;">Mut Buttons</div>
+    <div style="display: flex">
+      <mut-button onClick="buttonFunc()" type="primary">Primary</mut-button>
+      <mut-button onClick="buttonFunc()" type="default">Default</mut-button>
+      <mut-button type="disabled" disabled>Disabled</mut-button>
+    </div>
+
+    <div style="margin: 15px;">Mut Input</div>
+    <div>
+      <mut-input placeholder='without label'></mut-input>
+      <mut-input label='With label' value='hi'></mut-input>
+      <mut-input label='With label and helper'>
+        <div slot="help-text">Some helper</div>
+      </mut-input>
+    </div>
   </body>
+  <script>
+    const buttonFunc = () => {
+      console.log('here')
+      alert('button clicked')
+    }
+  </script>
 </html>

@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.button-default {
+	color: black;
+}
+
+.button-primary {
+	color: red;
+}
+
+.button-disabled {
+}

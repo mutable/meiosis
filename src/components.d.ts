@@ -6,6 +6,25 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface MutButton {
+        "disabled": boolean;
+        "type": 'default' | 'primary';
+    }
+    interface MutInput {
+        "disabled": boolean;
+        "invalid": boolean;
+        "label": string;
+        "max": number;
+        "maxlength": number;
+        "min": number;
+        "minlength": number;
+        "placeholder": string;
+        "readonly": boolean;
+        "required": boolean;
+        "type": 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
+        "valid": boolean;
+        "value": string;
+    }
     interface MutTabs {
         "tabClicked": (panel: string) => Promise<void>;
     }
@@ -32,6 +51,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLMutButtonElement extends Components.MutButton, HTMLStencilElement {
+    }
+    var HTMLMutButtonElement: {
+        prototype: HTMLMutButtonElement;
+        new (): HTMLMutButtonElement;
+    };
+    interface HTMLMutInputElement extends Components.MutInput, HTMLStencilElement {
+    }
+    var HTMLMutInputElement: {
+        prototype: HTMLMutInputElement;
+        new (): HTMLMutInputElement;
+    };
     interface HTMLMutTabsElement extends Components.MutTabs, HTMLStencilElement {
     }
     var HTMLMutTabsElement: {
@@ -57,6 +88,8 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "mut-button": HTMLMutButtonElement;
+        "mut-input": HTMLMutInputElement;
         "mut-tabs": HTMLMutTabsElement;
         "mut-tabs-panel": HTMLMutTabsPanelElement;
         "mut-tabs-tab": HTMLMutTabsTabElement;
@@ -64,6 +97,26 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface MutButton {
+        "disabled"?: boolean;
+        "type"?: 'default' | 'primary';
+    }
+    interface MutInput {
+        "disabled"?: boolean;
+        "invalid"?: boolean;
+        "label"?: string;
+        "max"?: number;
+        "maxlength"?: number;
+        "min"?: number;
+        "minlength"?: number;
+        "onMutChange"?: (event: CustomEvent<any>) => void;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "required"?: boolean;
+        "type"?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
+        "valid"?: boolean;
+        "value"?: string;
+    }
     interface MutTabs {
     }
     interface MutTabsPanel {
@@ -88,6 +141,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "mut-button": MutButton;
+        "mut-input": MutInput;
         "mut-tabs": MutTabs;
         "mut-tabs-panel": MutTabsPanel;
         "mut-tabs-tab": MutTabsTab;
@@ -98,6 +153,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "mut-button": LocalJSX.MutButton & JSXBase.HTMLAttributes<HTMLMutButtonElement>;
+            "mut-input": LocalJSX.MutInput & JSXBase.HTMLAttributes<HTMLMutInputElement>;
             "mut-tabs": LocalJSX.MutTabs & JSXBase.HTMLAttributes<HTMLMutTabsElement>;
             "mut-tabs-panel": LocalJSX.MutTabsPanel & JSXBase.HTMLAttributes<HTMLMutTabsPanelElement>;
             "mut-tabs-tab": LocalJSX.MutTabsTab & JSXBase.HTMLAttributes<HTMLMutTabsTabElement>;
