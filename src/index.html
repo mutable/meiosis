@@ -30,16 +30,39 @@
     <div style="margin: 15px;">Mut Input</div>
     <div>
       <mut-input placeholder='without label'></mut-input>
-      <mut-input label='With label' value='hi'></mut-input>
+      <mut-input id='first' label='With label' value='hi'></mut-input>
       <mut-input label='With label and helper'>
         <div slot="help-text">Some helper</div>
       </mut-input>
     </div>
+
+    <div style="margin: 15px;">Input with button</div>
+    <div style="display: flex;align-items: center;">
+      <mut-input id='complex' label='Some Label' placeholder='Type here...'>
+        <div slot="help-text">Some helper</div>
+      </mut-input>
+      <mut-button onClick="buttonInputFunc()" type="primary">Primary</mut-button>
+    </div>
   </body>
   <script>
     const buttonFunc = () => {
-      console.log('here')
-      alert('button clicked')
+      console.log('button clicked')
+      // alert('button clicked')
     }
+
+    const buttonInputFunc = async () => {
+      await customElements.whenDefined('mut-input');
+      const elem = document.getElementById('complex');
+      const value = await elem.getInputValue();
+      console.log('Value is', value)
+    }
+
+    const getInputVal = async () => {
+        await customElements.whenDefined('mut-input');
+        const elem = document.getElementById('first');
+        const value = await elem.getInputValue();
+        console.log('here', value, elem)
+    }
+    getInputVal();
   </script>
 </html>

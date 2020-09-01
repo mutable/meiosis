@@ -12,8 +12,12 @@ export namespace Components {
     }
     interface MutInput {
         "disabled": boolean;
+        "getInputValue": () => Promise<string>;
+        "helperId": string;
+        "id": string;
         "invalid": boolean;
         "label": string;
+        "labelId": string;
         "max": number;
         "maxlength": number;
         "min": number;
@@ -103,8 +107,11 @@ declare namespace LocalJSX {
     }
     interface MutInput {
         "disabled"?: boolean;
+        "helperId"?: string;
+        "id"?: string;
         "invalid"?: boolean;
         "label"?: string;
+        "labelId"?: string;
         "max"?: number;
         "maxlength"?: number;
         "min"?: number;

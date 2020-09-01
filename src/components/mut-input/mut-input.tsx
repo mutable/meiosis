@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, Event, EventEmitter, Method } from '@stencil/core';
 
 let id = 0;
 
@@ -10,9 +10,12 @@ let id = 0;
 export class MutInput {
   input: HTMLInputElement;
   inputId = `input-${++id}`;
-  labelId = `input-label-${id}`;
+  labelTextId = `input-label-${id}`;
   helpTextId = `input-help-text-${id}`;
   @Prop() label = '';
+  @Prop() id = '';
+  @Prop() labelId = '';
+  @Prop() helperId = '';
   @Prop({ mutable: true }) value: string = '';
   @Prop() placeholder = '';
   @Prop() valid = false;
@@ -26,12 +29,23 @@ export class MutInput {
   @Prop() required: boolean;
   @Prop() type: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' = 'text';
 
-  handleChange() {
-    this.value = this.input.value;
-    this.mutChange.emit();
+  connectedCallback() {
+    this.handleChange = this.handleChange.bind(this);
   }
 
   @Event() mutChange: EventEmitter;
+
+  handleChange() {
+    if(this.input) {
+      this.value = this.input.value;
+      this.mutChange.emit();
+    }
+  }
+
+  @Method()
+  async getInputValue() {
+    return this.input.value;
+  }
 
   render() {
     return (
@@ -43,7 +57,7 @@ export class MutInput {
         }}
       >
         <label
-          part="label"
+          id={this.labelId || this.labelTextId}
           class={{
             'label': true,
             'label-valid': this.valid,
@@ -52,35 +66,29 @@ export class MutInput {
         >
           {this.label}
         </label>
-
-        <div
+        <input
+          ref={el => (this.input = el)}
+          id={this.id || this.inputId}
           class={{
             'input': true,
             'input-disabled': this.disabled,
             'input-valid': this.valid,
             'input-invalid': this.invalid
           }}
-        >
-          <input
-            part="input"
-            ref={el => (this.input = el)}
-            id={this.inputId}
-            class="input__control"
-            type={this.type === 'password' ? 'text' : this.type}
-            placeholder={this.placeholder}
-            disabled={this.disabled}
-            readonly={this.readonly}
-            minLength={this.minlength}
-            maxLength={this.maxlength}
-            min={this.min}
-            max={this.max}
-            value={this.value}
-            required={this.required}
-            onChange={this.handleChange}
-          />
-        </div>
+          type={this.type === 'password' ? 'text' : this.type}
+          placeholder={this.placeholder}
+          disabled={this.disabled}
+          readonly={this.readonly}
+          minLength={this.minlength}
+          maxLength={this.maxlength}
+          min={this.min}
+          max={this.max}
+          value={this.value}
+          required={this.required}
+          onChange={this.handleChange}
+        />
         <div
-          id={this.helpTextId}
+          id={this.helperId || this.helpTextId}
           class={{
             'help-text': true,
             'help-text-valid': this.valid,

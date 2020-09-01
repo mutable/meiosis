@@ -2,7 +2,12 @@
   display: block;
 }
 
-.form-control-has-label {
+.input {
+
+}
+
+.form-control-has-label > * {
+	display: block;
 }
 
 .form-control-valid {
