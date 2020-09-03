@@ -1,6 +1,6 @@
 {
   "name": "meiosis",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Meiosis is the Design System for Mutable Products and Websites",
   "main": "dist/index.js",
   "module": "dist/custom-elements/index.js",
@@ -22,7 +22,9 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "^1.17.3"
+    "@stencil/core": "^1.17.3",
+    "mapbox-gl": "^1.12.0",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "homepage": "https://github.com/mutable/meiosis#readme",
   "author": "@mutable, @vachi, @AnnaNarim",

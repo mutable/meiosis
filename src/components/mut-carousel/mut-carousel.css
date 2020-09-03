@@ -1,0 +1,60 @@
+:host {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrap {
+	display: inline-block;
+}
+
+.carousel {
+	/*display: block;*/
+}
+
+.slides-wrapper {
+	overflow: hidden;
+	display: block;
+}
+
+.griding-wrapper {
+	display: inline-grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 50px 50px;
+}
+
+/*.griding {
+	display: inline-grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 50px 50px;
+}*/
+
+.slides {
+  display: flex;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+
+
+
+

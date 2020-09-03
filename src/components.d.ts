@@ -10,6 +10,10 @@ export namespace Components {
         "disabled": boolean;
         "type": 'default' | 'primary';
     }
+    interface MutCarousel {
+    }
+    interface MutCarouselItem {
+    }
     interface MutInput {
         "disabled": boolean;
         "getInputValue": () => Promise<string>;
@@ -28,6 +32,9 @@ export namespace Components {
         "type": 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
         "valid": boolean;
         "value": string;
+    }
+    interface MutMap {
+        "id": string;
     }
     interface MutTabs {
         "tabClicked": (panel: string) => Promise<void>;
@@ -61,11 +68,29 @@ declare global {
         prototype: HTMLMutButtonElement;
         new (): HTMLMutButtonElement;
     };
+    interface HTMLMutCarouselElement extends Components.MutCarousel, HTMLStencilElement {
+    }
+    var HTMLMutCarouselElement: {
+        prototype: HTMLMutCarouselElement;
+        new (): HTMLMutCarouselElement;
+    };
+    interface HTMLMutCarouselItemElement extends Components.MutCarouselItem, HTMLStencilElement {
+    }
+    var HTMLMutCarouselItemElement: {
+        prototype: HTMLMutCarouselItemElement;
+        new (): HTMLMutCarouselItemElement;
+    };
     interface HTMLMutInputElement extends Components.MutInput, HTMLStencilElement {
     }
     var HTMLMutInputElement: {
         prototype: HTMLMutInputElement;
         new (): HTMLMutInputElement;
+    };
+    interface HTMLMutMapElement extends Components.MutMap, HTMLStencilElement {
+    }
+    var HTMLMutMapElement: {
+        prototype: HTMLMutMapElement;
+        new (): HTMLMutMapElement;
     };
     interface HTMLMutTabsElement extends Components.MutTabs, HTMLStencilElement {
     }
@@ -93,7 +118,10 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "mut-button": HTMLMutButtonElement;
+        "mut-carousel": HTMLMutCarouselElement;
+        "mut-carousel-item": HTMLMutCarouselItemElement;
         "mut-input": HTMLMutInputElement;
+        "mut-map": HTMLMutMapElement;
         "mut-tabs": HTMLMutTabsElement;
         "mut-tabs-panel": HTMLMutTabsPanelElement;
         "mut-tabs-tab": HTMLMutTabsTabElement;
@@ -104,6 +132,10 @@ declare namespace LocalJSX {
     interface MutButton {
         "disabled"?: boolean;
         "type"?: 'default' | 'primary';
+    }
+    interface MutCarousel {
+    }
+    interface MutCarouselItem {
     }
     interface MutInput {
         "disabled"?: boolean;
@@ -123,6 +155,9 @@ declare namespace LocalJSX {
         "type"?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
         "valid"?: boolean;
         "value"?: string;
+    }
+    interface MutMap {
+        "id"?: string;
     }
     interface MutTabs {
     }
@@ -149,7 +184,10 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "mut-button": MutButton;
+        "mut-carousel": MutCarousel;
+        "mut-carousel-item": MutCarouselItem;
         "mut-input": MutInput;
+        "mut-map": MutMap;
         "mut-tabs": MutTabs;
         "mut-tabs-panel": MutTabsPanel;
         "mut-tabs-tab": MutTabsTab;
@@ -161,7 +199,10 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "mut-button": LocalJSX.MutButton & JSXBase.HTMLAttributes<HTMLMutButtonElement>;
+            "mut-carousel": LocalJSX.MutCarousel & JSXBase.HTMLAttributes<HTMLMutCarouselElement>;
+            "mut-carousel-item": LocalJSX.MutCarouselItem & JSXBase.HTMLAttributes<HTMLMutCarouselItemElement>;
             "mut-input": LocalJSX.MutInput & JSXBase.HTMLAttributes<HTMLMutInputElement>;
+            "mut-map": LocalJSX.MutMap & JSXBase.HTMLAttributes<HTMLMutMapElement>;
             "mut-tabs": LocalJSX.MutTabs & JSXBase.HTMLAttributes<HTMLMutTabsElement>;
             "mut-tabs-panel": LocalJSX.MutTabsPanel & JSXBase.HTMLAttributes<HTMLMutTabsPanelElement>;
             "mut-tabs-tab": LocalJSX.MutTabsTab & JSXBase.HTMLAttributes<HTMLMutTabsTabElement>;

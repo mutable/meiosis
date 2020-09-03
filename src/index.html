@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
-
     <script type="module" src="/build/meiosis.esm.js"></script>
     <script nomodule src="/build/meiosis.js"></script>
   </head>
@@ -43,6 +42,18 @@
       </mut-input>
       <mut-button onClick="buttonInputFunc()" type="primary">Primary</mut-button>
     </div>
+
+    <div style="margin: 15px;">Carousel</div>
+    <mut-carousel>
+      <mut-carousel-item></mut-carousel-item>
+      <mut-carousel-item></mut-carousel-item>
+      <mut-carousel-item></mut-carousel-item>
+      <mut-carousel-item></mut-carousel-item>
+      <mut-carousel-item></mut-carousel-item>
+      <mut-carousel-item></mut-carousel-item>
+    </mut-carousel>
+    <div style="margin: 15px;">Map</div>
+    <mut-map id='mut-map'></mut-map>
   </body>
   <script>
     const buttonFunc = () => {
@@ -61,7 +72,7 @@
         await customElements.whenDefined('mut-input');
         const elem = document.getElementById('first');
         const value = await elem.getInputValue();
-        console.log('here', value, elem)
+        // console.log('here', value, elem)
     }
     getInputVal();
   </script>

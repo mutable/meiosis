@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.item {
+	background: pink;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  margin-right: 50px;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+.item:target {
+/*   transform: scale(0.8); */
+}
