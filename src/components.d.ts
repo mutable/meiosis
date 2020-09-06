@@ -14,6 +14,9 @@ export namespace Components {
     }
     interface MutCarouselItem {
     }
+    interface MutDotPagination {
+        "href": string;
+    }
     interface MutInput {
         "disabled": boolean;
         "getInputValue": () => Promise<string>;
@@ -87,6 +90,12 @@ declare global {
         prototype: HTMLMutCarouselItemElement;
         new (): HTMLMutCarouselItemElement;
     };
+    interface HTMLMutDotPaginationElement extends Components.MutDotPagination, HTMLStencilElement {
+    }
+    var HTMLMutDotPaginationElement: {
+        prototype: HTMLMutDotPaginationElement;
+        new (): HTMLMutDotPaginationElement;
+    };
     interface HTMLMutInputElement extends Components.MutInput, HTMLStencilElement {
     }
     var HTMLMutInputElement: {
@@ -133,6 +142,7 @@ declare global {
         "mut-button": HTMLMutButtonElement;
         "mut-carousel": HTMLMutCarouselElement;
         "mut-carousel-item": HTMLMutCarouselItemElement;
+        "mut-dot-pagination": HTMLMutDotPaginationElement;
         "mut-input": HTMLMutInputElement;
         "mut-location": HTMLMutLocationElement;
         "mut-map": HTMLMutMapElement;
@@ -150,6 +160,9 @@ declare namespace LocalJSX {
     interface MutCarousel {
     }
     interface MutCarouselItem {
+    }
+    interface MutDotPagination {
+        "href"?: string;
     }
     interface MutInput {
         "disabled"?: boolean;
@@ -208,6 +221,7 @@ declare namespace LocalJSX {
         "mut-button": MutButton;
         "mut-carousel": MutCarousel;
         "mut-carousel-item": MutCarouselItem;
+        "mut-dot-pagination": MutDotPagination;
         "mut-input": MutInput;
         "mut-location": MutLocation;
         "mut-map": MutMap;
@@ -224,6 +238,7 @@ declare module "@stencil/core" {
             "mut-button": LocalJSX.MutButton & JSXBase.HTMLAttributes<HTMLMutButtonElement>;
             "mut-carousel": LocalJSX.MutCarousel & JSXBase.HTMLAttributes<HTMLMutCarouselElement>;
             "mut-carousel-item": LocalJSX.MutCarouselItem & JSXBase.HTMLAttributes<HTMLMutCarouselItemElement>;
+            "mut-dot-pagination": LocalJSX.MutDotPagination & JSXBase.HTMLAttributes<HTMLMutDotPaginationElement>;
             "mut-input": LocalJSX.MutInput & JSXBase.HTMLAttributes<HTMLMutInputElement>;
             "mut-location": LocalJSX.MutLocation & JSXBase.HTMLAttributes<HTMLMutLocationElement>;
             "mut-map": LocalJSX.MutMap & JSXBase.HTMLAttributes<HTMLMutMapElement>;

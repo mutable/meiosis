@@ -11,9 +11,6 @@ export class MutCarousel {
   @State() canScrollHorizontally = false;
   @Element() host: HTMLElement;
 
-// Maybe have two versions of carousel separately as 
-// components - one for mobile view and one for the desktop
-
   componentDidLoad() {
     this.resizeObserver = new ResizeObserver(() => this.syncHorizontalScroll());
     this.resizeObserver.observe(this.host);
@@ -24,30 +21,20 @@ export class MutCarousel {
   }
 
   syncHorizontalScroll() {
-    console.log('qwe', this.host.scrollWidth , this.host.clientWidth)
     this.canScrollHorizontally = this.host.scrollWidth > this.host.clientWidth;
   }
 
-  mobile() {
+  render() {
     return (
-      <div class='slides-wrapper'>
+      <div class='carousel'>
         <div class="slides">
-          <slot />
+          <slot name='slide'/>
+        </div>
+        <div class="dots">
+          <slot name='dot' />
         </div>
       </div>
     );
-  }
-
-  desktop() {
-    return (
-      <div class='griding-wrapper'>
-        <slot />
-      </div>
-    );
-  }
-
-  render() {
-    return this.canScrollHorizontally ? <div class='wrap'>{this.mobile()}</div> : <div class='wrap'>{this.desktop()}</div>
   }
 
 }

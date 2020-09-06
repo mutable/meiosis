@@ -45,12 +45,19 @@
 
     <div style="margin: 15px;">Carousel</div>
     <mut-carousel>
-      <mut-carousel-item></mut-carousel-item>
-      <mut-carousel-item></mut-carousel-item>
-      <mut-carousel-item></mut-carousel-item>
-      <mut-carousel-item></mut-carousel-item>
-      <mut-carousel-item></mut-carousel-item>
-      <mut-carousel-item></mut-carousel-item>
+      <mut-carousel-item slot='slide' id="slide-1"></mut-carousel-item>
+      <mut-carousel-item slot='slide' id="slide-2"></mut-carousel-item>
+      <mut-carousel-item slot='slide' id="slide-3"></mut-carousel-item>
+      <mut-carousel-item slot='slide' id="slide-4"></mut-carousel-item>
+      <mut-carousel-item slot='slide' id="slide-5"></mut-carousel-item>
+      <mut-carousel-item slot='slide' id="slide-6"></mut-carousel-item>
+
+      <mut-dot-pagination slot='dot' href="#slide-1"></mut-dot-pagination>
+      <mut-dot-pagination slot='dot' href="#slide-2"></mut-dot-pagination>
+      <mut-dot-pagination slot='dot' href="#slide-3"></mut-dot-pagination>
+      <mut-dot-pagination slot='dot' href="#slide-4"></mut-dot-pagination>
+      <mut-dot-pagination slot='dot' href="#slide-5"></mut-dot-pagination>
+      <mut-dot-pagination slot='dot' href="#slide-6"></mut-dot-pagination>
     </mut-carousel>
 
     <div style="margin: 15px;">Map</div>
