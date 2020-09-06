@@ -33,8 +33,15 @@ export namespace Components {
         "valid": boolean;
         "value": string;
     }
+    interface MutLocation {
+        "buttonType": any;
+        "placeholder": string;
+        "value": string;
+    }
     interface MutMap {
         "id": string;
+        "lngLat": any[];
+        "searchId": string;
     }
     interface MutTabs {
         "tabClicked": (panel: string) => Promise<void>;
@@ -86,6 +93,12 @@ declare global {
         prototype: HTMLMutInputElement;
         new (): HTMLMutInputElement;
     };
+    interface HTMLMutLocationElement extends Components.MutLocation, HTMLStencilElement {
+    }
+    var HTMLMutLocationElement: {
+        prototype: HTMLMutLocationElement;
+        new (): HTMLMutLocationElement;
+    };
     interface HTMLMutMapElement extends Components.MutMap, HTMLStencilElement {
     }
     var HTMLMutMapElement: {
@@ -121,6 +134,7 @@ declare global {
         "mut-carousel": HTMLMutCarouselElement;
         "mut-carousel-item": HTMLMutCarouselItemElement;
         "mut-input": HTMLMutInputElement;
+        "mut-location": HTMLMutLocationElement;
         "mut-map": HTMLMutMapElement;
         "mut-tabs": HTMLMutTabsElement;
         "mut-tabs-panel": HTMLMutTabsPanelElement;
@@ -156,8 +170,16 @@ declare namespace LocalJSX {
         "valid"?: boolean;
         "value"?: string;
     }
+    interface MutLocation {
+        "buttonType"?: any;
+        "onMutChange"?: (event: CustomEvent<any>) => void;
+        "placeholder"?: string;
+        "value"?: string;
+    }
     interface MutMap {
         "id"?: string;
+        "lngLat"?: any[];
+        "searchId"?: string;
     }
     interface MutTabs {
     }
@@ -187,6 +209,7 @@ declare namespace LocalJSX {
         "mut-carousel": MutCarousel;
         "mut-carousel-item": MutCarouselItem;
         "mut-input": MutInput;
+        "mut-location": MutLocation;
         "mut-map": MutMap;
         "mut-tabs": MutTabs;
         "mut-tabs-panel": MutTabsPanel;
@@ -202,6 +225,7 @@ declare module "@stencil/core" {
             "mut-carousel": LocalJSX.MutCarousel & JSXBase.HTMLAttributes<HTMLMutCarouselElement>;
             "mut-carousel-item": LocalJSX.MutCarouselItem & JSXBase.HTMLAttributes<HTMLMutCarouselItemElement>;
             "mut-input": LocalJSX.MutInput & JSXBase.HTMLAttributes<HTMLMutInputElement>;
+            "mut-location": LocalJSX.MutLocation & JSXBase.HTMLAttributes<HTMLMutLocationElement>;
             "mut-map": LocalJSX.MutMap & JSXBase.HTMLAttributes<HTMLMutMapElement>;
             "mut-tabs": LocalJSX.MutTabs & JSXBase.HTMLAttributes<HTMLMutTabsElement>;
             "mut-tabs-panel": LocalJSX.MutTabsPanel & JSXBase.HTMLAttributes<HTMLMutTabsPanelElement>;

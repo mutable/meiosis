@@ -52,8 +52,12 @@
       <mut-carousel-item></mut-carousel-item>
       <mut-carousel-item></mut-carousel-item>
     </mut-carousel>
+
     <div style="margin: 15px;">Map</div>
-    <mut-map id='mut-map'></mut-map>
+    <mut-location buttonType='primary'>
+      <div id='mut-map' slot='map'></div>
+    </mut-location>
+
   </body>
   <script>
     const buttonFunc = () => {

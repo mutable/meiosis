@@ -11,6 +11,9 @@ export class MutCarousel {
   @State() canScrollHorizontally = false;
   @Element() host: HTMLElement;
 
+// Maybe have two versions of carousel separately as 
+// components - one for mobile view and one for the desktop
+
   componentDidLoad() {
     this.resizeObserver = new ResizeObserver(() => this.syncHorizontalScroll());
     this.resizeObserver.observe(this.host);
