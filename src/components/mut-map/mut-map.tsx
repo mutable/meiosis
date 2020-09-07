@@ -1,5 +1,6 @@
 import { Component, h, Prop, State } from '@stencil/core';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 @Component({
   tag: 'mut-map',
@@ -12,14 +13,29 @@ export class MutMap {
   @Prop() lngLat = [];
 
   @State() map;
+  @State() marker = new mapboxgl.Marker();
+
+  componentDidLoad() {
+    const mutMap = document.getElementById('mut-map');
+    mutMap.className =  "map-container";
+  }
 
   componentWillRender() {
-    console.log('new marker',this.lngLat);
+    this.marker.remove();
+
     if(this.lngLat.length) {
       const _lngLat = {lon: this.lngLat[0], lat: this.lngLat[1]};
-      new mapboxgl.Marker()
-        .setLngLat(_lngLat)
-        .addTo(this.map);
+      this.map.center = _lngLat;
+      const latitudeDelta= 0.043;
+      const longitudeDelta= 0.034
+      this.map.fitBounds([
+        [_lngLat.lon - longitudeDelta/2, _lngLat.lat - latitudeDelta/2],
+        [_lngLat.lon + longitudeDelta/2, _lngLat.lat + latitudeDelta/2 ]
+      ]);
+      // For the Marker
+      // this.marker = new mapboxgl.Marker()
+      //   .setLngLat(_lngLat)
+      //   .addTo(this.map);
     }
   }
 
@@ -32,8 +48,8 @@ export class MutMap {
       zoom: 9 // starting zoom
     });
 
+
     if(this.lngLat.length) {
-      // const _lngLat = new mapboxgl.LngLat(this.lngLat[0], this.lngLat[1]);
       const _lngLat = {lon: this.lngLat[0], lat: this.lngLat[1]};
       new mapboxgl.Marker()
         .setLngLat(_lngLat)

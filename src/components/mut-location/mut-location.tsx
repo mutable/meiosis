@@ -10,7 +10,7 @@ const accessKey = 'pk.eyJ1IjoiYW5uYW5hcmltIiwiYSI6ImNrZW40NGNtZDF1YmMydHBjM3NlaX
 export class MutLocation {
   input: HTMLInputElement;
   @Prop() buttonType;
-  @Prop() placeholder = 'Area code';
+  @Prop() placeholder = 'Location';
   @Prop({ mutable: true }) value: string = '';
 
   @State() locations = [];
