@@ -66,9 +66,9 @@
   }
 
   .slides {
-    display: inline-grid;
+    display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 50px 50px;
+    grid-gap: 60px 60px;
   }
   .dots {
     display: none;

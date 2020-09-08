@@ -3,7 +3,6 @@
 }
 
 .item {
-	background: pink;
   scroll-snap-align: start;
   flex-shrink: 0;
   width: 100px;
@@ -13,8 +12,7 @@
   transform: scale(1);
   transition: transform 0.5s;
   position: relative;
-  display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 100px;
+  font-size: 16px;
 }
