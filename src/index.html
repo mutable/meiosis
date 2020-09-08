@@ -69,21 +69,18 @@
   </body>
   <script>
     const buttonFunc = () => {
-      console.log('button clicked')
     }
 
     const buttonInputFunc = async () => {
       await customElements.whenDefined('mut-input');
       const elem = document.getElementById('complex');
       const value = await elem.getInputValue();
-      console.log('Value is', value)
     }
 
     const getInputVal = async () => {
         await customElements.whenDefined('mut-input');
         const elem = document.getElementById('first');
         const value = await elem.getInputValue();
-        // console.log('here', value, elem)
     }
     getInputVal();
   </script>

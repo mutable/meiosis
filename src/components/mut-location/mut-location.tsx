@@ -38,7 +38,6 @@ export class MutLocation {
   }
 
   handleClick() {
-    console.log('click', this.value)
   }
 
   markLocation(item) {

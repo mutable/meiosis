@@ -56,20 +56,6 @@ export namespace Components {
         "active": boolean;
         "panel": string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
 }
 declare global {
     interface HTMLMutButtonElement extends Components.MutButton, HTMLStencilElement {
@@ -132,12 +118,6 @@ declare global {
         prototype: HTMLMutTabsTabElement;
         new (): HTMLMutTabsTabElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "mut-button": HTMLMutButtonElement;
         "mut-carousel": HTMLMutCarouselElement;
@@ -149,7 +129,6 @@ declare global {
         "mut-tabs": HTMLMutTabsElement;
         "mut-tabs-panel": HTMLMutTabsPanelElement;
         "mut-tabs-tab": HTMLMutTabsTabElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -203,20 +182,6 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "panel"?: string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface IntrinsicElements {
         "mut-button": MutButton;
         "mut-carousel": MutCarousel;
@@ -228,7 +193,6 @@ declare namespace LocalJSX {
         "mut-tabs": MutTabs;
         "mut-tabs-panel": MutTabsPanel;
         "mut-tabs-tab": MutTabsTab;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -245,7 +209,6 @@ declare module "@stencil/core" {
             "mut-tabs": LocalJSX.MutTabs & JSXBase.HTMLAttributes<HTMLMutTabsElement>;
             "mut-tabs-panel": LocalJSX.MutTabsPanel & JSXBase.HTMLAttributes<HTMLMutTabsPanelElement>;
             "mut-tabs-tab": LocalJSX.MutTabsTab & JSXBase.HTMLAttributes<HTMLMutTabsTabElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }
