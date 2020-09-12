@@ -13,6 +13,14 @@ export class MutTabsTab {
 
   @Element() host: HTMLMutTabElement;
 
+  componentDidLoad() {
+    this.host.onclick = () => this.onClick()
+  }
+
+  componentDidUpdate() {
+    this.active ? this.host.classList.add('active') : this.host.classList.remove('active');
+  }
+
   onClick () {
     (async () => {
       const foundTabs = document.querySelector('mut-tabs');
@@ -22,9 +30,7 @@ export class MutTabsTab {
 
   render() {
     return (
-      <button class={this.active ? "active" : "inactive"} onClick={() => this.onClick()}>
-        <slot />
-      </button>
+      <slot />
     );
   }
 
