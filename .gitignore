@@ -12,13 +12,12 @@ log.txt
 *.sublime-project
 *.sublime-workspace
 
-.stencil/
-.idea/
 .vscode/
 .sass-cache/
 .versions/
 node_modules/
 $RECYCLE.BIN/
+.cache/ 
 
 .DS_Store
 Thumbs.db

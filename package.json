@@ -1,33 +1,36 @@
 {
   "name": "@mutable/meiosis",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "description": "Meiosis is the Design System for Mutable Products and Websites",
-  "main": "dist/index.js",
-  "module": "dist/custom-elements/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/custom-elements/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/meiosis/meiosis.js",
-  "files": [
-    "dist/",
-    "loader/"
-  ],
+  "main": "index.js",
   "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx parcel src/index.html --open",
+    "build": "npx parcel build src/index.html --no-source-maps",
+    "clean": "rm -rf dist .cache"
   },
   "dependencies": {
-    "@stencil/core": "^1.17.3",
-    "mapbox-gl": "^1.12.0",
-    "resize-observer-polyfill": "^1.5.1"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.3",
+    "@tailwindcss/forms": "^0.2.1",
+    "@types/node": "^14.14.31",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/react-router-dom": "^5.1.7",
+    "autoprefixer": "^9.8.6",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.32.8",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
+    "typescript": "^4.2.2"
   },
   "homepage": "https://github.com/mutable/meiosis#readme",
-  "author": "@mutable, @vachi, @AnnaNarim",
+  "author": "@mutable, @vachi, @AnnaNarim, @sathovsepyan",
   "bugs": {
     "url": "https://github.com/mutable/meiosis/issues"
   },
@@ -35,16 +38,5 @@
     "type": "git",
     "url": "git+https://github.com/mutable/meiosis.git"
   },
-  "keywords": [
-    "design",
-    "system"
-  ],
-  "license": "MIT",
-  "devDependencies": {
-    "@types/jest": "25.2.3",
-    "@types/puppeteer": "2.0.1",
-    "jest": "26.0.1",
-    "jest-cli": "26.0.1",
-    "puppeteer": "2.1.1"
-  }
+  "license": "MIT"
 }
