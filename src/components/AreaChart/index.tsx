@@ -1,0 +1,1 @@
+export { AreaChart, AreaChartProps } from "./areaChart";
