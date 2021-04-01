@@ -1,19 +1,5 @@
 import React from "react";
-
-export interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
-}
+import { ButtonProps } from "./Button.types";
 
 export const Button: React.FC<ButtonProps> = ({
   primary = false,

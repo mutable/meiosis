@@ -9,7 +9,8 @@ import { WithTooltipProvidedProps } from '@visx/tooltip/lib/enhancers/withToolti
 import { localPoint } from '@visx/event';
 import { LinearGradient } from '@visx/gradient';
 import { max, extent, bisector } from 'd3-array';
-import { UsageDatum } from '~/helpers/types';
+import { UsageDatum } from '../../helpers/types';
+import { AreaChartProps } from './AreaChart.types';
 
 export const background = '#F3F4F6';
 export const background2 = '#F3F4F6';
@@ -28,14 +29,6 @@ type TooltipData = UsageDatum;
 const getDate = (d: UsageDatum) => new Date(d.time);
 const getValue = (d: UsageDatum) => parseFloat(d.value);
 const bisectDate = bisector<UsageDatum, Date>((d: UsageDatum) => new Date(d.time)).left;
-
-export interface AreaChartProps {
-  width: number;
-  height: number;
-  data: Array<UsageDatum>;
-  unit: string;
-  margin?: { top: number; right: number; bottom: number; left: number };
-}
 
 export const AreaChart = withTooltip<AreaChartProps, TooltipData>(
   ({

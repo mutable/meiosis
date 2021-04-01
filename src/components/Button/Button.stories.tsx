@@ -1,6 +1,7 @@
 import React from "react";
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { Button, ButtonProps } from '../components/Button'
+import { Button } from './Button'
+import { ButtonProps } from './Button.types'
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
@@ -15,7 +16,6 @@ Primary.args = {
   primary: true,
   label: "Primary"
 };
-
 
 export const Secondary = Template.bind({});
 Secondary.args = { 

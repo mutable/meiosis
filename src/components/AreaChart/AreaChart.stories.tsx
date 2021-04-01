@@ -1,9 +1,10 @@
 import React from "react";
 import { Story, Meta } from '@storybook/react/types-6-0';
 import ParentSize from '@visx/responsive/lib/components/ParentSize';
-import { AreaChart, AreaChartProps } from '../components/AreaChart'
+import { AreaChart } from './AreaChart'
+import { AreaChartProps } from './AreaChart.types'
 
-const data = require('../mock-data/usage.json');
+const data = require('../../mock-data/usage.json');
 
 const Template: Story<AreaChartProps> = (args) => <AreaChart {...args} />;
 

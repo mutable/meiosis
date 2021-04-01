@@ -1,19 +1,34 @@
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import typescript from "rollup-plugin-typescript2";
+import postcss from "rollup-plugin-postcss";
 
-import typescript from 'rollup-plugin-typescript2';
-import del from 'rollup-plugin-delete';
-import pkg from './package.json';
+const packageJson = require("./package.json");
 
-export default [
-  {
-    input: 'src/index.ts',
-    output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'esm' },
-    ],
-    plugins: [
-      del({ targets: ['dist/*', 'playground/src/component-lib'] }),
-      typescript(),
-    ],
-    external: Object.keys(pkg.peerDependencies || {}),
+export default {
+  onwarn: function (warning, warn) {
+    if (warning.code === 'CIRCULAR_DEPENDENCY') return;
+    warn(warning);
   },
-];
+  input: "src/index.ts",
+  output: [
+    {
+      file: packageJson.main,
+      format: "cjs",
+      sourcemap: true
+    },
+    {
+      file: packageJson.module,
+      format: "esm",
+      sourcemap: true
+    }
+  ],
+  plugins: [
+    peerDepsExternal(),
+    resolve(),
+    commonjs(),
+    typescript({ useTsconfigDeclarationDir: true }),
+    postcss()
+  ]
+};
