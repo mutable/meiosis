@@ -28,7 +28,16 @@ export default {
     peerDepsExternal(),
     resolve(),
     commonjs(),
+    postcss({
+      config: {
+          path: "./postcss.config.js",
+      },
+      extensions: [".css"],
+      minimize: false,
+      inject: {
+        insertAt: "top",
+      }
+    }),
     typescript({ useTsconfigDeclarationDir: true }),
-    postcss()
   ]
 };
