@@ -43,8 +43,6 @@ export const AreaChart = withTooltip<AreaChartProps, TooltipData>(
     tooltipTop = 0,
     tooltipLeft = 0,
   }: AreaChartProps & WithTooltipProvidedProps<TooltipData>) => {
-    if (width < 10) return null;
-
     // bounds
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
@@ -89,6 +87,8 @@ export const AreaChart = withTooltip<AreaChartProps, TooltipData>(
       },
       [showTooltip, usageValueScale, dateScale],
     );
+
+    if (width < 10) return <></>;
 
     return (
       <div>

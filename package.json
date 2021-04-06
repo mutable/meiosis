@@ -11,8 +11,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
     "build-watch": "rollup -c -w",
+    "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "generate": "node ./util/create-component"
   },
   "peerDependencies": {
     "react": ">=17.0.1",

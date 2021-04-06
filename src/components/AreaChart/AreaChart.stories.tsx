@@ -29,6 +29,13 @@ Default.args = {
   height: 150
 };
 
+export const Empty = Template.bind({});
+Empty.args = {
+  data: [],
+  width: 500,
+  height: 150
+};
+
 export const Responsive = TemplateResponsive.bind({});
 Responsive.args = {
   data: data,
