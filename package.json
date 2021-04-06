@@ -1,12 +1,13 @@
 {
   "name": "@mutable/meiosis",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Meiosis is the Design System for Mutable Products and Websites",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "files": [
     "build"
   ],
+  "types": "build/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
@@ -23,12 +24,12 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
-    "@storybook/addon-actions": "^6.2.1",
-    "@storybook/addon-essentials": "^6.2.1",
-    "@storybook/addon-links": "^6.2.1",
+    "@storybook/addon-actions": "^6.2.3",
+    "@storybook/addon-essentials": "^6.2.3",
+    "@storybook/addon-links": "^6.2.3",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/preset-scss": "^1.0.3",
-    "@storybook/react": "^6.2.1",
+    "@storybook/react": "^6.2.3",
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/postcss7-compat": "^2.0.3",
     "@types/d3-array": "^2.9.0",
