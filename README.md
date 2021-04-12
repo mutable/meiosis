@@ -1,59 +1,84 @@
 # meiosis
 
-Use this Design System within Mutable Products and Websites
+Use this Design System within Mutable Products.
 
 ## Getting Started
 
 ```bash
 npm install
-npm start
 ```
 
-To build the component for production, run:
+Note: When using NPM v7, you might encounter `npm ERR! ERESOLVE unable to resolve dependency tree`. To fix this, please use `npm install --legacy-peer-deps`, since the error is caused by some of the dependencies (including [@visx](https://github.com/airbnb/visx/issues/872)) not supporting React v17 yet. 
+
+## Run Storybook 
+
+```bash
+npm run storybook
+```
+All the components having `*.stories.tsx` are automatically included in Storybook. 
+
+## Build Storybook for production
+
+```bash
+npm run build-storybook
+```
+
+## Build the component library for production
 
 ```bash
 npm run build
 ```
 
-To run the unit tests for the components, run:
+## Generate new components
+When creating a new component, instead of creating the component directory and all its files manually, a util called `create-component.js` can be used. 
 
-```bash
-npm test
+```
+npm run generate ComponentName
 ```
 
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
+This will generate the following files, based on the templates stored at `util/templates`. 
 
+```
+/src
+  /components
+    /ComponentName
+      ComponentName.tsx
+      ComponentName.stories.tsx
+      ComponentName.types.ts
+```
 
-## Naming Components
+To export the newly added component in the npm package, add it to `index.ts`. 
 
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
+## NPM Publish
 
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix `ion`.
+The component library is published to [@mutable/meiosis](https://www.npmjs.com/package/@mutable/meiosis). To publish a new version, update the version in `package.json`, and run:
 
+```bash
+npm publish
+```
 
-## Using this component
+## Using the package
 
-There are three strategies we recommend for using web components built with Stencil.
+To use meiosis components in a client app, run:
 
-The first step for all three of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
+```bash
+npm install @mutable/meiosis
+```
+Then, simply use them by `import { Table, SystemHealthCard } from "@mutable/meiosis"`.
 
-### Script tag
+## Testing the package
 
-- Put a script tag similar to this `<script src='https://unpkg.com/my-component@0.0.1/dist/mycomponent.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
+All the components can be tested in different states using Storybook stories. 
 
-### Node Modules
-- Run `npm install my-component --save`
-- Put a script tag similar to this `<script src='node_modules/my-component/dist/mycomponent.js'></script>` in the head of your index.html
-- Then you can use the element anywhere in your template, JSX, html etc
+In addition, to test the package in client apps locally (before publishing it to NPM package registry), build the component library, and, in the client app run: 
 
-### In a stencil-starter app
-- Run `npm install my-component --save`
-- Add an import to the npm packages `import my-component;`
-- Then you can use the element anywhere in your template, JSX, html etc
+```bash
+npm uninstall @mutable/meiosis
+npm install full/path/to/package
+```
 
+Remember to change the dependency back to the published NPM package after testing. 
 
+## References
 
-## Dependencies
-
-- Stencil.js
+The library was inspired by [react-component-library](https://github.com/HarveyD/react-component-library) template.
