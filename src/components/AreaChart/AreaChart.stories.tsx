@@ -16,7 +16,7 @@ const TemplateResponsive: Story<AreaChartProps> = ({ width, height, ...rest }) =
   </div>;
 
 export default {
-  title: "Area Chart",
+  title: "Visualizations/Area Chart",
   component: AreaChart,
   argTypes: {}
 } as Meta;

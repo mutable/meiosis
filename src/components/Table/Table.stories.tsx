@@ -7,7 +7,7 @@ const Template: Story<TableProps> = (args) => <Table {...args} />;
 
 export default {
   component: Table,
-  title: "Table",
+  title: "Visualizations/Table",
   argTypes: {}
 } as Meta;
 

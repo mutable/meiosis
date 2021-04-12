@@ -10,7 +10,7 @@ const data = require('../../mock-data/usage.json');
 const Template: Story<SystemHealthCardProps> = (args) => <SystemHealthCard {...args} />;
 
 export default {
-  title: "SystemHealthCard",
+  title: "Visualizations/System Health Card",
   component: SystemHealthCard,
   argTypes: { } 
 } as Meta;

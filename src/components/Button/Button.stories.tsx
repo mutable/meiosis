@@ -7,7 +7,7 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 export default {
   component: Button,
-  title: "Button",
+  title: "General/Button",
   argTypes: {  }
 } as Meta;
 

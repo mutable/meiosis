@@ -4,7 +4,7 @@ import { Badge } from "./Badge";
 import { BadgeProps } from './Badge.types'
 
 export default {
-  title: "Badge",
+  title: "General/Badge",
   component: Badge,
   color: { control: 'select' },
 } as Meta;

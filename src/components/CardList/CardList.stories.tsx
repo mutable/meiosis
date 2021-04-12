@@ -4,14 +4,14 @@ import { CardList } from "./CardList";
 import { CardListProps } from './CardList.types'
 
 export default {
-  title: "CardList",
+  title: "Visualizations/Card List",
   component: CardList
 } as Meta;
 
 const Template: Story<CardListProps> = (args) => <CardList {...args} />;
 
-export const Basic = Template.bind({});
-Basic.args = {
+export const Default = Template.bind({});
+Default.args = {
   title: "Namespaces",
   cards: [
     {
