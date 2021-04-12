@@ -1,10 +1,7 @@
 import React from "react";
 import { IconProps, IconType } from "./Icon.types";
 
-export const Icon: React.FC<IconProps & React.HTMLAttributes<HTMLDivElement>> = ({ type, color, ...props }) => {
-  if (!color)
-    color = "gray"
-
+export const Icon: React.FC<IconProps & React.HTMLAttributes<HTMLDivElement>> = ({ type, color = "gray", size = 5, ...props }) => {
   let iconSvg = <></>;
   switch (type) {
     case "bug":
@@ -22,7 +19,7 @@ export const Icon: React.FC<IconProps & React.HTMLAttributes<HTMLDivElement>> = 
   }
 
   return (
-    <div className={`w-5 h-5 text-${color}-400`}>
+    <div className={`w-${size} h-${size} text-${color}-400`}>
       {iconSvg}
     </div>
   );
