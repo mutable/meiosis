@@ -15,7 +15,8 @@
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "generate": "node ./util/create-component"
+    "generate": "node ./util/create-component",
+    "chromatic": "npx chromatic --exit-zero-on-changes -d storybook-static/ --project-token b982b346e70a"
   },
   "peerDependencies": {
     "react": ">=17.0.1",
