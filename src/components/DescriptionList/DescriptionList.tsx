@@ -1,8 +1,8 @@
 import React from "react";
 import { DescriptionListProps } from "./DescriptionList.types";
 
-export const DescriptionList: React.FC<DescriptionListProps> = ({ title, items, ...props }) => {
-  return <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+export const DescriptionList: React.FC<DescriptionListProps & React.HTMLAttributes<HTMLDivElement>> = ({ title, items, className, ...props }) => {
+  return <div className={`bg-white shadow overflow-hidden sm:rounded-lg ${className}`} {...props}>
     {title && <div className="px-4 py-5 sm:px-6">
       <h3 className="text-lg leading-6 font-medium text-gray-900">
         {title}

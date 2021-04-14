@@ -1,7 +1,7 @@
 import React from "react";
 import { BadgeProps } from "./Badge.types";
 
-export const Badge: React.FC<BadgeProps> = ({ color, text, ...props }) => {
+export const Badge: React.FC<BadgeProps & React.HTMLAttributes<HTMLDivElement>> = ({ color, text, className, ...props  }) => {
   let colorClass = "";
   switch (color) {
     case "blue":
@@ -19,6 +19,6 @@ export const Badge: React.FC<BadgeProps> = ({ color, text, ...props }) => {
   }
 
   return (
-    <span className={`flex-shrink-0 inline-block px-2 py-0.5 text-xs font-medium rounded-full ${colorClass}`}>{text}</span>
+    <span className={`flex-shrink-0 inline-block px-2 py-0.5 text-xs font-medium rounded-full ${colorClass} ${className}`} {...props}>{text}</span>
   );
 }

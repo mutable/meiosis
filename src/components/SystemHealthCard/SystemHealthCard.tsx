@@ -3,18 +3,20 @@ import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import { AreaChart } from '../AreaChart/AreaChart';
 import { SystemHealthCardProps } from './SystemHealthCard.types';
 
-export const SystemHealthCard: React.FC<SystemHealthCardProps> = ({
+export const SystemHealthCard: React.FC<SystemHealthCardProps & React.HTMLAttributes<HTMLDivElement>> = ({
   data,
   title,
   icon,
   unit = '%',
-  useColoredNumber = true }) => {
+  useColoredNumber = true,
+  className,
+  ...props }) => {
   if (!data || data.length < 1)
     return <></>;
 
   const firstvalue = parseFloat(data[0].value);
   const lastvalue = parseFloat(data[data.length - 1].value);
-  
+
   const getColor = (value: number) => {
     if (!useColoredNumber)
       return 'gray-500';
@@ -22,7 +24,7 @@ export const SystemHealthCard: React.FC<SystemHealthCardProps> = ({
   };
 
   return (
-    <div className="flex flex-col bg-white overflow-hidden shadow rounded-lg">
+    <div className={`flex flex-col bg-white overflow-hidden shadow rounded-lg ${className}`} {...props}>
       <div className="flex-grow px-4 py-5 sm:p-6">
         <div className="flex items-center">
           <div className="flex-shrink-0 bg-gray-100 rounded-md p-3">

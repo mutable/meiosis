@@ -2,8 +2,8 @@ import React from "react";
 import { Card } from "../Card/Card";
 import { CardListProps } from "./CardList.types";
 
-export const CardList: React.FC<CardListProps> = ({ title, cards, ...props }) => (
-  <>
+export const CardList: React.FC<CardListProps & React.HTMLAttributes<HTMLDivElement>> = ({ title, cards, className, ...props }) => (
+  <div className={`${className}`} {...props}>
     <h1 className="m-4 text-lg font-medium leading-6 text-gray-900">
       {title}
     </h1>
@@ -20,6 +20,6 @@ export const CardList: React.FC<CardListProps> = ({ title, cards, ...props }) =>
         }
       </ul>
     </div>
-  </>
+  </div>
 );
 
