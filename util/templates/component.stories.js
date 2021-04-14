@@ -11,15 +11,11 @@ export default {
 
 const Template: Story<${componentName}Props> = (args) => <${componentName} {...args} />;
 
-export const WithBar = Template.bind({});
-WithBar.args = {
+export const Default = Template.bind({});
+Default.args = {
   foo: "bar",
 };
 
-export const WithBaz = Template.bind({});
-WithBaz.args = {
-  foo: "baz",
-};
 `,
   
   extension: `.stories.tsx`
