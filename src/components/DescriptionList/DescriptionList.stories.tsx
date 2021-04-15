@@ -24,6 +24,18 @@ const mockData = [
     value: "10.0.1.3"
   },
   {
+    key: "Host IP",
+    value: [
+      ["architecture", "amd64"],
+      ["bootID", "20e3bb64-3517-49f8-a2eb-ed7d96cce818"],
+      ["containerRuntimeVersion", "docker://19.3.14"],
+      ["kernelVersion", "5.4.89+"],
+      ["kubeProxyVersion", "v1.19.8-gke.2000"],
+      ["kubeletVersion", "v1.19.8-gke.2000"],
+    ],
+    type: "array"
+  },
+  {
     key: "Deployment YAML",
     value: `---
 apiVersion: apps/v1
@@ -37,7 +49,7 @@ spec:
       value: ":8080"
     - name: LEADER_ELECTION
       value: 'true'`,
-    preformatted: true
+    type: "preformatted"
   }
 ]
 

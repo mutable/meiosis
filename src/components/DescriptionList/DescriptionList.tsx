@@ -1,14 +1,34 @@
 import React from "react";
-import { DescriptionListProps } from "./DescriptionList.types";
+import { DescriptionItemProps, DescriptionItemType, DescriptionListProps } from "./DescriptionList.types";
 
-export const DescriptionList: React.FC<DescriptionListProps & React.HTMLAttributes<HTMLDivElement>> = ({ title, items, className, ...props }) => {
+export const DescriptionList: React.FC<DescriptionListProps & React.HTMLAttributes<HTMLDivElement>> = ({ title, subtitle, items, className, ...props }) => {
+  const renderValue = (descItem: DescriptionItemProps) => {
+    switch (descItem.type) {
+      case "preformatted":
+        return <pre>{descItem.value}</pre>
+      case "array":
+        return (descItem.value as string[]).map((item, index) =>
+          <li key={`nodeinfo-${index}`} className="flex items-center justify-between text-sm">
+            <div className="w-0 flex-1 flex items-center">
+              <span className="flex-1 w-0 truncate">
+                <span className='font-medium text-gray-500'>{item[0]}: </span>{item[1]}
+              </span>
+            </div>
+          </li>
+        )
+      case "string":
+      default:
+        return descItem.value;
+    }
+  }
+
   return <div className={`bg-white shadow overflow-hidden sm:rounded-lg ${className}`} {...props}>
-    {title && <div className="px-4 py-5 sm:px-6">
+    {title && <div className="p-4">
       <h3 className="text-lg leading-6 font-medium text-gray-900">
         {title}
       </h3>
       <p className="mt-1 max-w-2xl text-sm text-gray-500">
-        {/* Node status and metadata */}
+        {subtitle}
       </p>
     </div>
     }
@@ -22,7 +42,7 @@ export const DescriptionList: React.FC<DescriptionListProps & React.HTMLAttribut
                 {item.key}
               </dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {item.preformatted ? <pre>{item.value}</pre> : item.value}
+                {renderValue(item)}
               </dd>
             </div>
           })}
