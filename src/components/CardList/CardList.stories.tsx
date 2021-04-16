@@ -13,7 +13,7 @@ const Template: Story<CardListProps> = (args) => <CardList {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   title: "Namespaces",
-  cards: [
+  items: [
     {
       title: "mutable-api",
       description: "2021-02-26T00:19:33Z",
