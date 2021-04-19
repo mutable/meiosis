@@ -8,24 +8,27 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 export default {
   component: Button,
   title: "General/Button",
-  argTypes: {  }
+  argTypes: {}
 } as Meta;
 
 export const Primary = Template.bind({});
-Primary.args = { 
+Primary.args = {
   primary: true,
-  label: "Primary"
+  label: "Primary",
+  type: "submit"
 };
 
 export const Secondary = Template.bind({});
-Secondary.args = { 
+Secondary.args = {
   primary: false,
-  label: "Secondary"
+  label: "Secondary",
+  disabled: false,
+  onClick: () => { alert('onClick!') }
 };
 
 export const Loading = Template.bind({});
-Loading.args = { 
+Loading.args = {
   primary: true,
-  label: "Click me", 
+  label: "Click me",
   loading: true
 };

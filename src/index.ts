@@ -9,7 +9,9 @@ import { Icon } from './components/Icon/Icon';
 import { IconLink } from './components/IconLink/IconLink';
 import { Spinner } from './components/Spinner/Spinner';
 import { Card } from './components/Card/Card';
+import { Field } from './components/Field/Field';
+import { Input } from './components/Input/Input';
 
 import './styles/global.css'
 
-export { Button, AreaChart, SystemHealthCard, Table, Badge, Card, CardList, DescriptionList, Icon, IconLink, Spinner };
+export { Button, AreaChart, SystemHealthCard, Table, Badge, Card, CardList, DescriptionList, Icon, IconLink, Spinner, Input, Field };
