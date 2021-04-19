@@ -22,3 +22,10 @@ Secondary.args = {
   primary: false,
   label: "Secondary"
 };
+
+export const Loading = Template.bind({});
+Loading.args = { 
+  primary: true,
+  label: "Click me", 
+  loading: true
+};

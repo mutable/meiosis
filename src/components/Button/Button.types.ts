@@ -11,4 +11,8 @@ export interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
+  /**
+   * Show loading spinner 
+   */
+  loading: boolean;
 }
