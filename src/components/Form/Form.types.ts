@@ -1,6 +1,8 @@
 import React from "react";
-import { DeepPartial } from "react-hook-form";
+import { UnpackNestedValue, DeepPartial } from "react-hook-form";
 
-export interface FormProps {
-  children: (useFormParams: any) => React.ReactNode,
+export interface FormProps<T> {
+  children: (useFormParams: any) => React.ReactNode;
+  onSubmit: (e: React.FormEvent) => {};
+  defaultValues?: UnpackNestedValue<DeepPartial<T>>;
 }

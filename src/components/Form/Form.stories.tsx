@@ -11,25 +11,39 @@ export default {
   component: Form
 } as Meta;
 
-const Template: Story<FormProps> = (args) => <Form {...args} >
+interface FormData {
+  fullName: string;
+  email: string;
+  age: number;
+}
 
+const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
   {({ register, control, errors }) =>
     <>
-      <Field label="Name" invalid={!!errors.name} error="Username is required">
+      <Field label="Full Name" invalid={!!errors.fullName} error="Full Name is required.">
         <Input
-          name="name"
-          placeholder="Roger Waters"
+          name="fullName"
+          placeholder="Mut Ineer"
           type="text"
-          {...register("name", { required: true })}
+          {...register("fullName", { required: true })}
         />
       </Field>
 
-      <Field label="Email" invalid={!!errors.email} error="E-mail is required">
+      <Field label="Email" invalid={!!errors.email} error="Please enter a valid email.">
         <Input
           name="email"
-          placeholder="roger.waters@grafana.com"
+          placeholder="mutineer@mutable.io"
           type="text"
-          {...register("email", { required: true })} />
+          {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} />
+      </Field>
+
+
+      <Field label="Age" invalid={!!errors.age} error="Age should be between 18 and 99.">
+        <Input
+          name="age"
+          placeholder="20"
+          type="number"
+          {...register("age", { min: 18, max: 99 })} />
       </Field>
 
       <Button primary label="Submit" />
@@ -39,6 +53,17 @@ const Template: Story<FormProps> = (args) => <Form {...args} >
 
 export const Default = Template.bind({});
 Default.args = {
-
+  onSubmit: () => alert("submitted")
 };
 
+const defaultValues: FormData = {
+  fullName: "Mut Ineer",
+  email: "mutineer@mutable.io",
+  age: 20
+}
+
+export const DefaultValues = Template.bind({});
+DefaultValues.args = {
+  onSubmit: (e) => alert("submitted"),
+  defaultValues: defaultValues
+};
