@@ -12,7 +12,7 @@ export const Field: React.FC<FieldProps & React.HTMLProps<HTMLDivElement>> = ({
   ...props }) => {
 
   return (
-    <div className={className}>
+    <div className={`my-2 ${className}`}>
       <label htmlFor="email" className="block text-sm font-medium text-gray-700">
         {label}{required ? ' *' : ''}
       </label>

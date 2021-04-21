@@ -14,5 +14,5 @@ export interface ButtonProps {
   /**
    * Show loading spinner 
    */
-  loading: boolean;
+  loading?: boolean;
 }
