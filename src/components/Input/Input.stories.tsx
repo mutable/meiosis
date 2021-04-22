@@ -5,7 +5,7 @@ import { InputProps } from './Input.types';
 import { Field } from '../Field/Field';
 
 export default {
-  title: "Forms/Input",
+  title: "General/Input",
   component: Input, 
 } as Meta;
 

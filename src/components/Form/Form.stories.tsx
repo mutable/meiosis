@@ -5,6 +5,8 @@ import { FormProps } from './Form.types'
 import { Field } from '../Field/Field'
 import { Input } from '../Input/Input'
 import { Button } from '../Button/Button'
+import { ControlledSelect } from "../Select/ControlledSelect";
+import { SelectValue } from "../Select/Select.types";
 
 export default {
   title: "Forms/Form",
@@ -15,7 +17,16 @@ interface FormData {
   fullName: string;
   email: string;
   age: number;
+  country: SelectValue;
 }
+
+const countries: SelectValue[] = [
+  { id: 1, value: 'Sweden' },
+  { id: 2, value: 'Finland' },
+  { id: 3, value: 'Norway' },
+  { id: 4, value: 'Denmark' },
+  { id: 5, value: 'Estonia' }
+]
 
 const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
   {({ register, control, errors }) =>
@@ -37,13 +48,22 @@ const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
           {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} />
       </Field>
 
-
       <Field label="Age" invalid={!!errors.age} error="Age should be between 18 and 99.">
         <Input
           name="age"
           placeholder="20"
           type="number"
           {...register("age", { min: 18, max: 99 })} />
+      </Field>
+
+      <Field label="Country" invalid={!!errors.country} error="Please select a country.">
+        <ControlledSelect
+          name="country"
+          control={control}
+          options={countries}
+          defaultSelected={args.defaultValues ? countries[1] : undefined}
+          rules={{ required: true }}
+        />
       </Field>
 
       <Button primary label="Submit" />
@@ -53,17 +73,24 @@ const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
 
 export const Default = Template.bind({});
 Default.args = {
-  onSubmit: () => alert("submitted")
+  onSubmit: (e) => {
+    console.log(e)
+    alert("submitted\n" + JSON.stringify(e))
+  }
 };
 
 const defaultValues: FormData = {
   fullName: "Mut Ineer",
   email: "mutineer@mutable.io",
-  age: 20
+  age: 20,
+  country: countries[1]
 }
 
 export const DefaultValues = Template.bind({});
 DefaultValues.args = {
-  onSubmit: (e) => alert("submitted"),
+  onSubmit: (e) => {
+    console.log(e)
+    alert("submitted\n" + JSON.stringify(e))
+  },
   defaultValues: defaultValues
 };
