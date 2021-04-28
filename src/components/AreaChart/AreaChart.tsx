@@ -9,7 +9,7 @@ import { WithTooltipProvidedProps } from '@visx/tooltip/lib/enhancers/withToolti
 import { localPoint } from '@visx/event';
 import { LinearGradient } from '@visx/gradient';
 import { max, extent, bisector } from 'd3-array';
-import { UsageDatum } from '../../helpers/types';
+import { TimeSeries } from '../../helpers/types';
 import { AreaChartProps } from './AreaChart.types';
 
 export const background = '#F3F4F6';
@@ -23,12 +23,12 @@ const tooltipStyles = {
   color: 'black',
 };
 
-type TooltipData = UsageDatum;
+type TooltipData = TimeSeries;
 
 // accessors
-const getDate = (d: UsageDatum) => new Date(d.time);
-const getValue = (d: UsageDatum) => parseFloat(d.value);
-const bisectDate = bisector<UsageDatum, Date>((d: UsageDatum) => new Date(d.time)).left;
+const getDate = (d: TimeSeries) => new Date(d.time);
+const getValue = (d: TimeSeries) => parseFloat(d.value);
+const bisectDate = bisector<TimeSeries, Date>((d: TimeSeries) => new Date(d.time)).left;
 
 export const AreaChart = withTooltip<AreaChartProps, TooltipData>(
   ({
@@ -120,7 +120,7 @@ export const AreaChart = withTooltip<AreaChartProps, TooltipData>(
             strokeOpacity={0.2}
             pointerEvents="none"
           />
-          <AreaClosed<UsageDatum>
+          <AreaClosed<TimeSeries>
             data={data}
             x={d => dateScale(getDate(d)) ?? 0}
             y={d => usageValueScale(getValue(d)) ?? 0}

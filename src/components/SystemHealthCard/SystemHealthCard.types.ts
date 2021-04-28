@@ -1,10 +1,10 @@
-import { UsageDatum } from "../../helpers/types";
+import { TimeSeries } from "../../helpers/types";
 
 export interface SystemHealthCardProps {
   /**
    * Array of elements in format { "time": "2021-03-04T16:14:43.514Z", "value": 13.355117901726734 }
    */
-  data: Array<UsageDatum>;
+  data: Array<TimeSeries>;
   /**
    * Title of the card, such as "CPU Usage"
    */

@@ -11,7 +11,11 @@ import { Spinner } from './components/Spinner/Spinner';
 import { Card } from './components/Card/Card';
 import { Field } from './components/Field/Field';
 import { Input } from './components/Input/Input';
+import { Form } from './components/Form/Form';
+import { Select } from './components/Select/Select';
+import { ControlledSelect } from './components/Select/ControlledSelect';
 
 import './styles/global.css'
 
-export { Button, AreaChart, SystemHealthCard, Table, Badge, Card, CardList, DescriptionList, Icon, IconLink, Spinner, Input, Field };
+export * from "./types";
+export { Button, AreaChart, SystemHealthCard, Table, Badge, Card, CardList, DescriptionList, Icon, IconLink, Spinner, Input, Field, Form, Select, ControlledSelect };
