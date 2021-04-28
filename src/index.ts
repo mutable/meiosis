@@ -14,8 +14,13 @@ import { Input } from './components/Input/Input';
 import { Form } from './components/Form/Form';
 import { Select } from './components/Select/Select';
 import { ControlledSelect } from './components/Select/ControlledSelect';
+import { Modal } from './components/Modal/Modal';
+import { SectionTitle } from './components/SectionTitle/SectionTitle';
 
 import './styles/global.css'
 
 export * from "./types";
-export { Button, AreaChart, SystemHealthCard, Table, Badge, Card, CardList, DescriptionList, Icon, IconLink, Spinner, Input, Field, Form, Select, ControlledSelect };
+export {
+  Button, AreaChart, SystemHealthCard, Table, Badge, Card, CardList, DescriptionList, Icon, IconLink,
+  Spinner, Input, Field, Form, Select, ControlledSelect, Modal, SectionTitle
+};
