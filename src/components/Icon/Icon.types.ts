@@ -1,4 +1,4 @@
-export type IconType = 'bug' | 'history' | 'spinner' | 'stack';
+export type IconType = 'bug' | 'history' | 'spinner' | 'stack' | 'plus' | 'trash' | 'envelope';
 
 export interface IconProps {
   type: IconType;

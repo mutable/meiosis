@@ -1,12 +1,18 @@
+import { IconType } from "../Icon/Icon.types";
+
+export type ButtonVariant = "primary" | "secondary" | "transparent";
+
 export interface ButtonProps {
   /**
-   * Is this the principal call to action on the page?
+   * ButtonType = "primary" | "secondary" | "transparent";
    */
-  primary?: boolean;
+  variant?: ButtonVariant;
   /**
    * Button contents
    */
   label: string;
+  iconBefore?: IconType;
+  iconAfter?: IconType;
   /**
    * Optional click handler
    */

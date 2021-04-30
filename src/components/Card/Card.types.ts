@@ -1,3 +1,4 @@
+import React from "react";
 import { BadgeProps } from "../Badge/Badge.types";
 import { IconLinkProps } from "../IconLink/IconLink.types";
 
@@ -6,6 +7,5 @@ export interface CardProps {
   status?: BadgeProps,
   description: string,
   description2?: string,
-  link1?: IconLinkProps,
-  link2?: IconLinkProps,
+  buttons: React.ReactElement[]
 }

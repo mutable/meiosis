@@ -2,6 +2,7 @@ import React from "react";
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Card } from "./Card";
 import { CardProps } from './Card.types'
+import { Button } from "../Button/Button";
 
 export default {
   title: "General/Card",
@@ -25,14 +26,12 @@ SingleLink.args = {
   description: "2021-02-26T00:19:33Z",
   description2: "d4468358-a6de-4b9d-aa9b-5f60ea1e2cfa",
   status: {
-    color: "green", 
+    color: "green",
     text: "Normal"
   },
-  link1: {
-    label: "View namespace", 
-    iconType: "stack",
-    href: "#"
-  }
+  buttons: [
+    <Button iconBefore="stack" label="View namespace" />
+  ]
 };
 
 export const TwoLinks = Template.bind({});
@@ -41,17 +40,11 @@ TwoLinks.args = {
   description: "2021-02-26T00:19:33Z",
   description2: "d4468358-a6de-4b9d-aa9b-5f60ea1e2cfa",
   status: {
-    color: "orange", 
+    color: "orange",
     text: "Warning"
   },
-  link1: {
-    label: "View namespace", 
-    iconType: "stack",
-    href: "#"
-  },
-  link2: {
-    label: "Report an issue", 
-    iconType: "bug",
-    href: "#"
-  }
+  buttons: [
+    <Button iconBefore="stack" label="View namespace" />,
+    <Button iconBefore="bug" label="Report an issue" />
+  ]
 };

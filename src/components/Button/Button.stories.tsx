@@ -11,24 +11,26 @@ export default {
   argTypes: {}
 } as Meta;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: "Primary",
-  type: "submit"
-};
+export const Variants: Story = (args) => {
+  return <>
+    <div className="flex space-x-4">
+      <Button label="Primary" variant="primary" />
+      <Button label="Secondary" variant="secondary" />
+      <Button label="Transparent" variant="transparent" />
+    </div>
+    <div className="flex mt-4 space-x-4">
+      <Button label="Icon Before" iconBefore="envelope" variant="primary" />
+      <Button label="Icon After" iconAfter="trash" variant="secondary" />
+      <Button label="Icon Before" iconBefore="plus" variant="transparent" />
+    </div>
+    <div className="flex mt-4 space-x-4">
+      <Button loading label="Click me" variant="primary" />
+    </div>
+  </>
+}
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  primary: false,
-  label: "Secondary",
-  disabled: false,
+export const Default = Template.bind({});
+Default.args = {
+  label: "Default",
   onClick: () => { alert('onClick!') }
-};
-
-export const Loading = Template.bind({});
-Loading.args = {
-  primary: true,
-  label: "Click me",
-  loading: true
 };
