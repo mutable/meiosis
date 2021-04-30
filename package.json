@@ -1,6 +1,6 @@
 {
   "name": "@mutable/meiosis",
-  "version": "1.0.11",
+  "version": "1.0.13",
   "description": "Meiosis is the Design System for Mutable Products and Websites",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -20,7 +20,8 @@
   },
   "peerDependencies": {
     "react": ">=17.0.1",
-    "react-dom": ">=17.0.1"
+    "react-dom": ">=17.0.1",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",

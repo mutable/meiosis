@@ -18,9 +18,11 @@ import { SelectValue, SelectProps } from './components/Select/Select.types';
 import { ControlledSelectProps } from './components/Select/ControlledSelect.types';
 import { ModalProps } from './components/Modal/Modal.types';
 import { SectionTitleProps } from './components/SectionTitle/SectionTitle.types';
+import { AlertType, AlertProps } from './components/Alert/Alert.types';
 
 export {
   TimeSeries, ButtonProps, AreaChartProps, SystemHealthCardProps, TableProps, BadgeProps, CardProps,
   CardListProps, DescriptionItemProps, DescriptionListProps, IconProps, IconLinkProps, SpinnerProps,
-  InputProps, FieldProps, FormProps, SelectValue, SelectProps, ControlledSelectProps, ModalProps, SectionTitleProps
+  InputProps, FieldProps, FormProps, SelectValue, SelectProps, ControlledSelectProps, ModalProps, SectionTitleProps,
+  AlertType, AlertProps
 };

@@ -34,7 +34,7 @@ export const Default: Story = (args) => {
           />
         </Field>
 
-        <Button primary label="Submit" />
+        <Button variant="primary" label="Submit" />
       </>
     }
   </Form>

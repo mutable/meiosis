@@ -66,7 +66,7 @@ const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
         />
       </Field>
 
-      <Button primary label="Submit" />
+      <Button variant="primary" label="Submit" />
     </>
   }
 </Form>;
