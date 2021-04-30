@@ -1,6 +1,6 @@
 {
   "name": "@mutable/meiosis",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Meiosis is the Design System for Mutable Products and Websites",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -37,6 +37,7 @@
     "@types/d3-array": "^2.9.0",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.1.7",
     "@visx/curve": "^1.7.0",
     "@visx/event": "^1.7.0",
     "@visx/gradient": "^1.7.0",
