@@ -17,11 +17,12 @@ import { ControlledSelect } from './components/Select/ControlledSelect';
 import { Modal } from './components/Modal/Modal';
 import { SectionTitle } from './components/SectionTitle/SectionTitle';
 import { Alert } from './components/Alert/Alert';
+import { Tabs } from './components/Tabs/Tabs';
 
 import './styles/global.css'
 
 export * from "./types";
 export {
   Button, AreaChart, SystemHealthCard, Table, Badge, Card, CardList, DescriptionList, Icon, IconLink,
-  Spinner, Input, Field, Form, Select, ControlledSelect, Modal, SectionTitle, Alert
+  Spinner, Input, Field, Form, Select, ControlledSelect, Modal, SectionTitle, Alert, Tabs
 };

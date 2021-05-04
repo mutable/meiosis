@@ -15,8 +15,8 @@ export const Card: React.FC<CardProps & React.HTMLAttributes<HTMLDivElement>> = 
       </div>
     </div>
     <div className="flex items-center justify-center">
-      {buttons && buttons.map(item => (
-        <div className="flex-1 inline-flex item-center justify-center pb-1">
+      {buttons && buttons.map((item, index) => (
+        <div key={`btn-${index}`} className="flex-1 inline-flex item-center justify-center pb-1">
           {item}
         </div>
       ))}

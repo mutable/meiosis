@@ -27,7 +27,7 @@ export const Table: React.FC<TableProps & React.HTMLAttributes<HTMLDivElement>> 
               {rows?.map((row: any, index) => {
                 const accentColor = index % 2 ? 'bg-gray-50' : 'bg-white'
 
-                return <tr key={`row-${index}`} className={`${accentColor} hover:bg-gray-100 cursor-pointer`} onClick={() => onRowClick(row)}>
+                return <tr key={`row-${index}`} className={`${accentColor} hover:bg-gray-100 cursor-pointer`} onClick={() => { if (onRowClick) onRowClick(row) }}>
                   {Object.values(row).map((value: any, index) => {
                     return <td key={`value-${index}`} className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
                       {value}
