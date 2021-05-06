@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react";
 import { IconType } from "../Icon/Icon.types";
 
 export type ButtonVariant = "primary" | "secondary" | "transparent";
@@ -16,7 +17,7 @@ export interface ButtonProps {
   /**
    * Optional click handler
    */
-  onClick?: () => void;
+  onClick?: MouseEventHandler;
   /**
    * Show loading spinner 
    */

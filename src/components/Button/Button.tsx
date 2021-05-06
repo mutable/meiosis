@@ -33,7 +33,12 @@ export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButto
 
   return (
     <button
-      onClick={onClick}
+      onClick={(e) => {
+        if (onClick) {
+          onClick(e);
+          e.stopPropagation();
+        };
+      }}
       disabled={loading ? true : disabled}
       className={joinClassnames("inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md disabled:opacity-70", styles, "text-" + textColor, className || "")}
       {...props}
