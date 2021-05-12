@@ -5,6 +5,8 @@ export const Table: React.FC<TableProps & React.HTMLAttributes<HTMLDivElement>> 
   columns,
   rows,
   onRowClick,
+  selectable,
+  selectedRowIndex,
   className,
   ...props }) => {
 
@@ -25,10 +27,20 @@ export const Table: React.FC<TableProps & React.HTMLAttributes<HTMLDivElement>> 
 
             <tbody>
               {rows?.map((row: any, index) => {
-                const accentColor = index % 2 ? 'bg-gray-50' : 'bg-white'
+                let accentColor;
+                if (selectable && selectedRowIndex === index)
+                  accentColor = "bg-gray-200"
+                else
+                  accentColor = index % 2 ? 'bg-gray-50' : 'bg-white'
 
-                return <tr key={`row-${index}`} className={`${accentColor} hover:bg-gray-100 cursor-pointer`} onClick={() => { if (onRowClick) onRowClick(row) }}>
+                return <tr key={`row-${index}`} className={`${accentColor} hover:bg-gray-100 cursor-pointer`} onClick={() => {
+                  if (onRowClick)
+                    onRowClick(row, index)
+                }}>
                   {Object.values(row).map((value: any, index) => {
+                    if (value.type === "hidden")
+                      return;
+
                     return <td key={`value-${index}`} className='px-6 py-4 whitespace-nowrap text-sm font-medium'>
                       {value}
                     </td>
