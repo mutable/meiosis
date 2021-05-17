@@ -3,7 +3,7 @@ import { Badge } from "../Badge/Badge";
 import { CardProps } from "./Card.types";
 
 export const Card: React.FC<CardProps & React.HTMLAttributes<HTMLDivElement>> = ({ title, status, description, description2, buttons, className, ...props }) => (
-  <div className={`col-span-1 bg-white rounded-lg shadow ${className}`} {...props}>
+  <div className={`bg-white rounded-lg shadow ${className}`} {...props}>
     <div className="w-full flex items-center justify-between p-6 space-x-6">
       <div className="flex-1 truncate">
         <div className="flex items-center space-x-3">
