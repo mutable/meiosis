@@ -24,7 +24,7 @@ Default.args = {
         text: "Normal"
       },
       buttons: [
-        <Button iconBefore="stack" label="View namespace" />
+        <Button iconBefore="stack" label="View namespace" variant='pink' />
       ]
     },
     {
@@ -37,7 +37,7 @@ Default.args = {
         text: "Warning"
       },
       buttons: [
-        <Button iconBefore="stack" label="View namespace" />
+        <Button iconBefore="stack" label="View namespace" variant='pink' />
       ]
     },
     {
@@ -49,7 +49,7 @@ Default.args = {
         text: "Error"
       },
       buttons: [
-        <Button iconBefore="stack" label="View namespace" />
+        <Button iconBefore="stack" label="View namespace" variant='pink' />
       ]
     }
   ]

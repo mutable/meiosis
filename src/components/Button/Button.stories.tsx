@@ -16,12 +16,15 @@ export const Variants: Story = (args) => {
     <div className="flex space-x-4">
       <Button label="Primary" variant="primary" />
       <Button label="Secondary" variant="secondary" />
-      <Button label="Transparent" variant="transparent" />
+      <Button label="White" variant="white" />
+      <Button label="Pink" variant="pink" />
     </div>
     <div className="flex mt-4 space-x-4">
       <Button label="Icon Before" iconBefore="envelope" variant="primary" />
       <Button label="Icon After" iconAfter="trash" variant="secondary" />
-      <Button label="Icon Before" iconBefore="plus" variant="transparent" />
+      <Button label="Create" iconBefore="plus" variant="white" />
+      <Button label="Edit" iconBefore="edit" variant="white" />
+      <Button label="Report an issue" iconBefore="bug" variant="pink" />
     </div>
     <div className="flex mt-4 space-x-4">
       <Button loading label="Click me" variant="primary" />

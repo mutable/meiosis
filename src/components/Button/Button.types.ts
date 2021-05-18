@@ -1,7 +1,7 @@
 import { MouseEventHandler } from "react";
 import { IconType } from "../Icon/Icon.types";
 
-export type ButtonVariant = "primary" | "secondary" | "transparent";
+export type ButtonVariant = "primary" | "secondary" | "white" | "pink";
 
 export interface ButtonProps {
   /**
