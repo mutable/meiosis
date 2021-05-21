@@ -1,4 +1,5 @@
 import React from "react";
+import WithLoading from "../HOC/WithLoading/WithLoading";
 import { DescriptionItemProps, DescriptionItemType, DescriptionListProps } from "./DescriptionList.types";
 
 export const DescriptionList: React.FC<DescriptionListProps & React.HTMLAttributes<HTMLDivElement>> = ({ title, subtitle, items, className, ...props }) => {
@@ -51,3 +52,5 @@ export const DescriptionList: React.FC<DescriptionListProps & React.HTMLAttribut
     }
   </div>
 };
+
+export const DescriptionListWithLoading = WithLoading(DescriptionList)

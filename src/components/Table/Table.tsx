@@ -1,4 +1,5 @@
 import React from "react";
+import WithLoading from "../HOC/WithLoading/WithLoading";
 import { TableProps } from "./Table.types";
 
 export const Table: React.FC<TableProps & React.HTMLAttributes<HTMLDivElement>> = ({
@@ -56,3 +57,5 @@ export const Table: React.FC<TableProps & React.HTMLAttributes<HTMLDivElement>> 
     </div>
   </div>
 };
+
+export const TableWithLoading = WithLoading(Table);

@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "../Card/Card";
+import WithLoading from "../HOC/WithLoading/WithLoading";
 import { CardListProps } from "./CardList.types";
 
 export const CardList: React.FC<CardListProps & React.HTMLAttributes<HTMLDivElement>> = ({ items, className, ...props }) => (
@@ -18,3 +19,4 @@ export const CardList: React.FC<CardListProps & React.HTMLAttributes<HTMLDivElem
   </div>
 );
 
+export const CardListWithLoading = WithLoading(CardList)

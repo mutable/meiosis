@@ -1,5 +1,6 @@
 export interface SpinnerProps {
   color?: string;
-  backgroundColor?: string; 
-  size?: number; 
+  backgroundColor?: string;
+  size?: number;
+  fullHeight?: boolean;
 }

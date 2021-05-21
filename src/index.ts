@@ -1,10 +1,10 @@
 import { Button } from './components/Button/Button';
 import { AreaChart } from './components/AreaChart/AreaChart';
 import { SystemHealthCard } from './components/SystemHealthCard/SystemHealthCard';
-import { Table } from './components/Table/Table';
+import { Table, TableWithLoading } from './components/Table/Table';
 import { Badge } from './components/Badge/Badge';
-import { CardList } from './components/CardList/CardList';
-import { DescriptionList } from './components/DescriptionList/DescriptionList';
+import { CardList, CardListWithLoading } from './components/CardList/CardList';
+import { DescriptionList, DescriptionListWithLoading } from './components/DescriptionList/DescriptionList';
 import { Icon } from './components/Icon/Icon';
 import { IconLink } from './components/IconLink/IconLink';
 import { Spinner } from './components/Spinner/Spinner';
@@ -19,10 +19,13 @@ import { SectionTitle } from './components/SectionTitle/SectionTitle';
 import { Alert } from './components/Alert/Alert';
 import { Tabs } from './components/Tabs/Tabs';
 
+import WithLoading from "./components/HOC/WithLoading/WithLoading";
+
 import './styles/global.css'
 
 export * from "./types";
 export {
-  Button, AreaChart, SystemHealthCard, Table, Badge, Card, CardList, DescriptionList, Icon, IconLink,
-  Spinner, Input, Field, Form, Select, ControlledSelect, Modal, SectionTitle, Alert, Tabs
+  Button, AreaChart, SystemHealthCard, Table, TableWithLoading, Badge, Card, CardList, CardListWithLoading,
+  DescriptionList, DescriptionListWithLoading, Icon, IconLink,
+  Spinner, Input, Field, Form, Select, ControlledSelect, Modal, SectionTitle, Alert, Tabs, WithLoading
 };

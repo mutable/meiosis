@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { Table } from './Table';
+import { Table, TableWithLoading } from './Table';
 import { TableProps } from './Table.types';
 import { Button } from '../Button/Button';
 
@@ -53,6 +53,20 @@ export const Selectable: Story = (args) => {
       selectable
       selectedRowIndex={selectedRowIndex}
       onRowClick={(row, index) => setSelectedRowIndex(index)}
+    />
+  );
+};
+
+export const WithLoading: Story = (args) => {
+  const [loading, setLoading] = useState(true);
+
+  setTimeout(function () { setLoading(false) }, 2000);
+
+  return (
+    <TableWithLoading
+      isLoading={loading}
+      columns={columns}
+      rows={rows}
     />
   );
 };
