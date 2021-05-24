@@ -16,7 +16,7 @@ import { InputProps } from './components/Input/Input.types';
 import { FormProps } from './components/Form/Form.types';
 import { SelectValue, SelectProps } from './components/Select/Select.types';
 import { ControlledSelectProps } from './components/Select/ControlledSelect.types';
-import { ModalProps } from './components/Modal/Modal.types';
+import { ModalProps, Width } from './components/Modal/Modal.types';
 import { SectionTitleProps } from './components/SectionTitle/SectionTitle.types';
 import { AlertType, AlertProps } from './components/Alert/Alert.types';
 import { TabsProps, TabProps } from './components/Tabs/Tabs.types';
@@ -24,6 +24,6 @@ import { TabsProps, TabProps } from './components/Tabs/Tabs.types';
 export {
   TimeSeries, ButtonProps, AreaChartProps, SystemHealthCardProps, TableProps, BadgeProps, CardProps,
   CardListProps, DescriptionItemProps, DescriptionListProps, IconProps, IconLinkProps, SpinnerProps,
-  InputProps, FieldProps, FormProps, SelectValue, SelectProps, ControlledSelectProps, ModalProps, SectionTitleProps,
-  AlertType, AlertProps, TabProps, TabsProps
+  InputProps, FieldProps, FormProps, SelectValue, SelectProps, ControlledSelectProps, ModalProps, Width,
+  SectionTitleProps, AlertType, AlertProps, TabProps, TabsProps
 };

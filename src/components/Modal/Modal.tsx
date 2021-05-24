@@ -3,9 +3,9 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ModalProps } from "./Modal.types";
 
-export const Modal: React.FC<ModalProps & React.HTMLAttributes<HTMLDivElement>> = ({ title, open, onClose, children, className, ...props }) => {
+export const Modal: React.FC<ModalProps & React.HTMLAttributes<HTMLDivElement>> = ({ title, open, onClose, width = "lg", children, className, ...props }) => {
   // const cancelButtonRef = useRef()
-  return ( <Transition.Root show={open} as={Fragment}>
+  return (<Transition.Root show={open} as={Fragment}>
     <Dialog
       as="div"
       static
@@ -40,7 +40,7 @@ export const Modal: React.FC<ModalProps & React.HTMLAttributes<HTMLDivElement>> 
           leaveFrom="opacity-100 translate-y-0 sm:scale-100"
           leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
-          <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+          <div className={`inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-${width} sm:w-full sm:p-6`}>
             <div className="sm:flex sm:items-start">
               <div className="mt-3 text-center sm:mt-0 sm:text-left">
                 <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
