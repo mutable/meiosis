@@ -18,6 +18,7 @@ import { Modal } from './components/Modal/Modal';
 import { SectionTitle } from './components/SectionTitle/SectionTitle';
 import { Alert } from './components/Alert/Alert';
 import { Tabs } from './components/Tabs/Tabs';
+import { AccountSelection } from './components/AccountSelection/AccountSelection';
 
 import WithLoading from "./components/HOC/WithLoading/WithLoading";
 
@@ -27,5 +28,6 @@ export * from "./types";
 export {
   Button, AreaChart, SystemHealthCard, Table, TableWithLoading, Badge, Card, CardList, CardListWithLoading,
   DescriptionList, DescriptionListWithLoading, Icon, IconLink,
-  Spinner, Input, Field, Form, Select, ControlledSelect, Modal, SectionTitle, Alert, Tabs, WithLoading
+  Spinner, Input, Field, Form, Select, ControlledSelect, Modal, SectionTitle, Alert, Tabs, WithLoading,
+  AccountSelection
 };

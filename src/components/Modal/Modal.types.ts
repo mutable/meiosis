@@ -5,5 +5,5 @@ export interface ModalProps {
   open: boolean;
   onClose: (value: boolean) => void;
   children: React.ReactElement;
-  width: Width;
+  width?: Width;
 }

@@ -42,6 +42,7 @@ export const Default: Story = (args) => {
     <div>
       <Button label={"Open"} onClick={() => setOpen(true)} />
       <Modal
+        width="3xl"
         title="Create namespace"
         open={open}
         onClose={setOpen}>
