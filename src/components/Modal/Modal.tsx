@@ -9,7 +9,8 @@ export const Modal: React.FC<ModalProps & React.HTMLAttributes<HTMLDivElement>> 
     <Dialog
       as="div"
       static
-      className="fixed z-10 inset-0 overflow-y-auto"
+      className="fixed inset-0 overflow-y-auto"
+      style={{ zIndex: 2000 }}
       // initialFocus={cancelButtonRef}
       open={open}
       onClose={onClose}
