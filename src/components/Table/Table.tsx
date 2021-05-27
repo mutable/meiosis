@@ -39,7 +39,7 @@ export const Table: React.FC<TableProps & React.HTMLAttributes<HTMLDivElement>> 
                     onRowClick(row, index)
                 }}>
                   {Object.values(row).map((value: any, index) => {
-                    if (value.type === "hidden")
+                    if (value && value.type === "hidden")
                       return;
 
                     return <td key={`value-${index}`} className='px-6 py-4 whitespace-nowrap text-sm font-medium'>

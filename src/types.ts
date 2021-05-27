@@ -20,10 +20,12 @@ import { ModalProps, Width } from './components/Modal/Modal.types';
 import { SectionTitleProps } from './components/SectionTitle/SectionTitle.types';
 import { AlertType, AlertProps } from './components/Alert/Alert.types';
 import { TabsProps, TabProps } from './components/Tabs/Tabs.types';
+import { AccountSelectionProps } from './components/AccountSelection/AccountSelection.types';
+import { PaginationProps } from './components/Pagination/Pagination.types';
 
 export {
   TimeSeries, ButtonProps, AreaChartProps, SystemHealthCardProps, TableProps, BadgeProps, CardProps,
   CardListProps, DescriptionItemProps, DescriptionListProps, IconProps, IconLinkProps, SpinnerProps,
   InputProps, FieldProps, FormProps, SelectValue, SelectProps, ControlledSelectProps, ModalProps, Width,
-  SectionTitleProps, AlertType, AlertProps, TabProps, TabsProps
+  SectionTitleProps, AlertType, AlertProps, TabProps, TabsProps, AccountSelectionProps, PaginationProps
 };
