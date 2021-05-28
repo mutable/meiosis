@@ -1,3 +1,4 @@
+import { SelectorIcon } from "@heroicons/react/solid";
 import React from "react";
 import WithLoading from "../HOC/WithLoading/WithLoading";
 import { TableProps } from "./Table.types";
@@ -6,8 +7,10 @@ export const Table: React.FC<TableProps & React.HTMLAttributes<HTMLDivElement>> 
   columns,
   rows,
   onRowClick,
+  onColumnClick,
   selectable,
   selectedRowIndex,
+  sortableColumns,
   className,
   ...props }) => {
 
@@ -19,8 +22,20 @@ export const Table: React.FC<TableProps & React.HTMLAttributes<HTMLDivElement>> 
             <thead className="bg-gray-50">
               <tr>
                 {columns?.map((item: any, index) => {
-                  return <th key={`col-${index}`} scope="col" className="px-6 py-3 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider">
-                    {item}
+                  return <th
+                    key={`col-${index}`}
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider hover:bg-gray-100"
+                    onClick={() => {
+                      if (onColumnClick)
+                        onColumnClick(item, index)
+                    }}>
+                    <div className="flex">
+                      {item}
+                      {sortableColumns && sortableColumns.includes(item) &&
+                        <SelectorIcon className="ml-3 h-4 w-4 text-gray-400" />
+                      }
+                    </div>
                   </th>
                 })}
               </tr>

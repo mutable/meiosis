@@ -61,7 +61,7 @@ const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
           name="country"
           control={control}
           options={countries}
-          defaultSelected={args.defaultValues ? countries[1] : undefined}
+          defaultSelected={args.defaultValues ? countries[0] : undefined}
           rules={{ required: true }}
         />
       </Field>

@@ -8,6 +8,8 @@ export interface TableProps {
    */
   rows: any[];
   onRowClick?: (row: any, index: number) => void;
+  onColumnClick?: (column: any, index: number) => void;
   selectable?: boolean;
   selectedRowIndex?: number;
+  sortableColumns?: string[]
 }
