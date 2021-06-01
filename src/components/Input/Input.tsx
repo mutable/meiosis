@@ -1,8 +1,8 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 import { InputProps } from "./Input.types";
 import { ExclamationCircleIcon } from '@heroicons/react/solid'
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(({ invalid, ...otherProps }, ref) => {
+export const Input = React.forwardRef<HTMLInputElement, InputProps & InputHTMLAttributes<HTMLInputElement>>(({ invalid, ...otherProps }, ref) => {
   const inputColors = invalid ? "border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500" : "focus:ring-indigo-500 focus:border-indigo-500 border-gray-300";
 
   return (

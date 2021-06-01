@@ -20,6 +20,7 @@ import { Alert } from './components/Alert/Alert';
 import { Tabs } from './components/Tabs/Tabs';
 import { AccountSelection } from './components/AccountSelection/AccountSelection';
 import { Pagination } from './components/Pagination/Pagination';
+import { DataTable } from './components/DataTable/DataTable';
 
 import WithLoading from "./components/HOC/WithLoading/WithLoading";
 
@@ -30,5 +31,5 @@ export {
   Button, AreaChart, SystemHealthCard, Table, TableWithLoading, Badge, Card, CardList, CardListWithLoading,
   DescriptionList, DescriptionListWithLoading, Icon, IconLink,
   Spinner, Input, Field, Form, Select, ControlledSelect, Modal, SectionTitle, Alert, Tabs, WithLoading,
-  AccountSelection, Pagination
+  AccountSelection, Pagination, DataTable
 };

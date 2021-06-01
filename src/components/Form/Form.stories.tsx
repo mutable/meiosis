@@ -21,11 +21,11 @@ interface FormData {
 }
 
 const countries: SelectValue[] = [
-  { id: 1, value: 'Sweden' },
-  { id: 2, value: 'Finland' },
-  { id: 3, value: 'Norway' },
-  { id: 4, value: 'Denmark' },
-  { id: 5, value: 'Estonia' }
+  { id: '1', value: 'Sweden' },
+  { id: '2', value: 'Finland' },
+  { id: '3', value: 'Norway' },
+  { id: '4', value: 'Denmark' },
+  { id: '5', value: 'Estonia' }
 ]
 
 const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
