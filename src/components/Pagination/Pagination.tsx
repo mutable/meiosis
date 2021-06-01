@@ -16,7 +16,7 @@ export const Pagination: React.FC<PaginationProps & React.HTMLAttributes<HTMLDiv
     return null;
 
   return (<div
-    className={`px-4 mb-4 -mt-2 flex items-center justify-between sm:px-0 ${className}`} {...props}
+    className={`px-4 mb-4 flex items-center justify-between sm:px-0 ${className}`} {...props}
     aria-label="Pagination"
   >
     <div className="-mt-px w-0 flex-1 flex ml-4">

@@ -27,9 +27,9 @@ const columns: DataTableColumnProps[] = [
 ];
 
 const rows = [
-  { name: "mutable-api", status: "Active", details: { line1: "Some details", line2: "MUT ! " }, tags: ["test1", "test2"], containers: 12, edit: <Button label="Edit" onClick={() => { console.log('smt') }} /> },
-  { name: "loki-promtail", status: "Unknown", details: { line1: "Other details", line2: "More details" }, tags: ["region:east"], containers: 1, edit: <Button label="Edit" onClick={() => { console.log('smt') }} /> },
-  { name: "loki-prometheus-server", status: "Critical", details: { line1: "Test details", line2: "Mure details" }, tags: ["region:west", "test2"], containers: 4 },
+  { name: "mutable-api", status: "Active", details: { line1: "Some details", line2: "MUT 2 Network Connected" }, tags: ["test1", "test2"], containers: 12, edit: <Button label="Edit" onClick={() => { console.log('smt') }} /> },
+  { name: "loki-promtail", status: "Unknown", details: { line1: "Some details", line2: "MUT 1 Network Connected" }, tags: ["region:east"], containers: 1, edit: <Button label="Edit" onClick={() => { console.log('smt') }} /> },
+  { name: "loki-prometheus-server", status: "Critical", details: { line1: "Test details", line2: "More details" }, tags: ["region:west", "test2"], containers: 4 },
   { name: "some-other-api", status: "Active", details: { line1: "Server Connected in Sioux Falls, SD", line2: "MUT 1 Network Connected" }, tags: ["a", "a", "a"], containers: 45 },
   { name: "loki-test-api", status: "Critical", details: { line1: "Server Unreachable in Midco Labs", line2: "MUT 2 Network Unreachable" }, tags: ["a", "b", "c"], containers: 4 },
 ];

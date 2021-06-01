@@ -34,6 +34,20 @@ export const DataTable: React.FC<DataTableProps & React.HTMLAttributes<HTMLDivEl
         if (val1 > val2) {
           return sortConfig.direction === 'ascending' ? 1 : -1;
         }
+
+        let subVal1 = a[sortConfig.key]?.line2;
+        let subVal2 = b[sortConfig.key]?.line2;
+
+        // in case of "multiline" values, sort by second line when first lines are equal
+        if (subVal1 && subVal2) {
+          if (subVal1 < subVal2) {
+            return sortConfig.direction === 'ascending' ? -1 : 1;
+          }
+          if (subVal1 > subVal2) {
+            return sortConfig.direction === 'ascending' ? 1 : -1;
+          }
+        }
+
         return 0;
       });
     }
