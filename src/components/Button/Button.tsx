@@ -1,6 +1,7 @@
 import React from "react";
 import { joinClassnames } from "../../helpers/tailwindHelpers";
 import { Icon } from "../Icon/Icon";
+import { IconType } from "../Icon/Icon.types";
 import { ButtonProps } from "./Button.types";
 
 export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
@@ -48,12 +49,13 @@ export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButto
       {...props}
     >
       {loading && <>
-        <Icon type="spinner" className={joinClassnames("animate-spin -ml-1 mr-2", iconColor)} aria-hidden="true" />
+        <Icon src="spinner" className={joinClassnames("animate-spin -ml-1 mr-2", iconColor)} aria-hidden="true" />
           Loading...
       </>}
-      {!loading && iconBefore && <Icon type={iconBefore} className={joinClassnames("-ml-1 mr-2", iconColor)} aria-hidden="true" />}
+
+      {!loading && iconBefore && <Icon src={iconBefore} className={joinClassnames("-ml-1 mr-2", iconColor)} aria-hidden="true" />}
       {!loading && label}
-      {!loading && iconAfter && <Icon type={iconAfter} className={joinClassnames("ml-2 -mr-1", iconColor)} aria-hidden="true" />}
+      {!loading && iconAfter && <Icon src={iconAfter} className={joinClassnames("ml-2 -mr-1", iconColor)} aria-hidden="true" />}
     </button>
   );
 };
