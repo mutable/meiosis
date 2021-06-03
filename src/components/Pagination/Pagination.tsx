@@ -12,7 +12,7 @@ export const Pagination: React.FC<PaginationProps & React.HTMLAttributes<HTMLDiv
       onPageChanged(currentPage);
   }
 
-  if (totalPages === 1)
+  if (totalPages <= 1)
     return null;
 
   return (<div
