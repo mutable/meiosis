@@ -1,11 +1,12 @@
 import React from "react";
 import { SelectorIcon } from "@heroicons/react/solid";
-import { joinClassnames } from "../../helpers/tailwindHelpers";
+import { joinClassnames } from "../../utils/tailwindHelpers";
 import { Badge } from "../Badge/Badge";
 import { Input } from "../Input/Input";
 import { Select } from "../Select/Select";
 import { Spinner } from "../Spinner/Spinner";
 import { DataTableColumnProps, DataTableProps, SortConfig, SortDirection } from "./DataTable.types";
+import { statusToColor } from "../../utils/helpers";
 
 export const DataTable: React.FC<DataTableProps & React.HTMLAttributes<HTMLDivElement>> = ({
   columns,
@@ -60,22 +61,6 @@ export const DataTable: React.FC<DataTableProps & React.HTMLAttributes<HTMLDivEl
       direction = 'descending';
     }
     setSortConfig({ key, direction });
-  }
-
-  const statusToColor = (status: string) => {
-    if (!status)
-      return "blue";
-    switch (status.toLowerCase()) {
-      case "":
-      case "active":
-      case "normal":
-      case "running":
-        return "green";
-      case "critical":
-        return "red";
-      default:
-        return "blue";
-    }
   }
 
   const cellContent = (col: DataTableColumnProps, row: any) => {

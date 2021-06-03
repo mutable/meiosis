@@ -14,16 +14,17 @@ const mockData = [
   {
     key: "Name",
     value: "Pod 1"
-  },
-  {
+  }, {
+    key: "Status",
+    value: "Active",
+    type: "badge"
+  }, {
     key: "Created",
     value: "2021-03-04T15:38:43.514Z"
-  },
-  {
+  }, {
     key: "Host IP",
     value: "10.0.1.3"
-  },
-  {
+  }, {
     key: "Host IP",
     value: [
       ["architecture", "amd64"],
@@ -34,8 +35,7 @@ const mockData = [
       ["kubeletVersion", "v1.19.8-gke.2000"],
     ],
     type: "array"
-  },
-  {
+  }, {
     key: "Deployment YAML",
     value: `---
 apiVersion: apps/v1

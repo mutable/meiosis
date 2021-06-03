@@ -1,4 +1,4 @@
-import { TimeSeries } from './helpers/types';
+import { TimeSeries } from './utils/types';
 
 import { ButtonProps } from './components/Button/Button.types';
 import { AreaChartProps } from './components/AreaChart/AreaChart.types';

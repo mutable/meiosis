@@ -1,5 +1,5 @@
 import React from "react";
-import { joinClassnames } from "../../helpers/tailwindHelpers";
+import { joinClassnames } from "../../utils/tailwindHelpers";
 import { Icon } from "../Icon/Icon";
 import { SpinnerProps } from "./Spinner.types";
 

@@ -9,7 +9,7 @@ import { WithTooltipProvidedProps } from '@visx/tooltip/lib/enhancers/withToolti
 import { localPoint } from '@visx/event';
 import { LinearGradient } from '@visx/gradient';
 import { max, extent, bisector } from 'd3-array';
-import { TimeSeries } from '../../helpers/types';
+import { TimeSeries } from '../../utils/types';
 import { AreaChartProps } from './AreaChart.types';
 
 export const background = '#F3F4F6';

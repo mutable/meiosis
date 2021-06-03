@@ -1,12 +1,19 @@
 import React from "react";
+import { Badge } from "../Badge/Badge";
 import WithLoading from "../HOC/WithLoading/WithLoading";
-import { DescriptionItemProps, DescriptionItemType, DescriptionListProps } from "./DescriptionList.types";
+import { DescriptionItemProps, DescriptionListProps } from "./DescriptionList.types";
 
 export const DescriptionList: React.FC<DescriptionListProps & React.HTMLAttributes<HTMLDivElement>> = ({ title, subtitle, items, className, ...props }) => {
   const renderValue = (descItem: DescriptionItemProps) => {
     switch (descItem.type) {
       case "preformatted":
-        return <pre>{descItem.value}</pre>
+        return <pre>{descItem.value}</pre>;
+      case "badge":
+        if (typeof descItem.value === "string")
+          return <Badge text={descItem.value as string} />;
+        if (Array.isArray(descItem.value))
+          return (descItem.value as string[]).map((item, index) =>
+            <Badge key={`badge-${index}`} text={item} className="mx-1" />)
       case "array":
         return (descItem.value as string[]).map((item, index) =>
           <li key={`nodeinfo-${index}`} className="flex items-center justify-between text-sm">

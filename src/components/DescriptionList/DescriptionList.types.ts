@@ -1,8 +1,8 @@
-export type DescriptionItemType = "string" | "array" | "preformatted";
+export type DescriptionItemType = "string" | "array" | "preformatted" | "badge";
 
 export interface DescriptionItemProps {
   key: string;
-  value: string | string[];
+  value: string | string[] | object;
   type?: DescriptionItemType;
 }
 

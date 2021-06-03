@@ -1,6 +1,6 @@
 import { ArrowNarrowLeftIcon, ArrowNarrowRightIcon } from "@heroicons/react/solid";
 import React from "react";
-import { joinClassnames } from "../../helpers/tailwindHelpers";
+import { joinClassnames } from "../../utils/tailwindHelpers";
 import { PaginationProps } from "./Pagination.types";
 
 export const Pagination: React.FC<PaginationProps & React.HTMLAttributes<HTMLDivElement>> = ({ currentPage, totalItems, pageLimit = 10, onPageChanged, className, ...props }) => {

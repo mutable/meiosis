@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { joinClassnames } from "../../helpers/tailwindHelpers";
+import { joinClassnames } from "../../utils/tailwindHelpers";
 import { TabsProps } from "./Tabs.types";
 
 export const Tabs: React.FC<TabsProps & React.HTMLAttributes<HTMLDivElement>> = ({ tabs, defaultIndex, className, ...props }) => {

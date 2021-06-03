@@ -4,7 +4,7 @@ import { SelectProps } from "./Select.types";
 import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon, ExclamationCircleIcon } from '@heroicons/react/solid'
-import { joinClassnames, inputBorderClassnames } from "../../helpers/tailwindHelpers";
+import { joinClassnames, inputBorderClassnames } from "../../utils/tailwindHelpers";
 
 export const Select: React.FC<SelectProps & React.HTMLAttributes<HTMLInputElement>> = ({ defaultSelected, options, handleChange, invalid, className, showEmptyOption = false, ...props }) => {
   const [selected, setSelected] = useState(defaultSelected)

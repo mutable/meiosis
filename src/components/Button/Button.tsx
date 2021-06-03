@@ -1,5 +1,5 @@
 import React from "react";
-import { joinClassnames } from "../../helpers/tailwindHelpers";
+import { joinClassnames } from "../../utils/tailwindHelpers";
 import { Icon } from "../Icon/Icon";
 import { IconType } from "../Icon/Icon.types";
 import { ButtonProps } from "./Button.types";

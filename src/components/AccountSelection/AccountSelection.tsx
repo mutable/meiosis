@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { AccountSelectionProps } from "./AccountSelection.types";
 import { Menu, Transition } from '@headlessui/react'
 import { SelectorIcon } from '@heroicons/react/solid'
-import { joinClassnames } from "../../helpers/tailwindHelpers";
+import { joinClassnames } from "../../utils/tailwindHelpers";
 
 export const AccountSelection: React.FC<AccountSelectionProps & React.HTMLAttributes<HTMLDivElement>> = ({ options, activeOption, setActiveOption, className, ...props }) => {
 

@@ -1,4 +1,4 @@
-import { TimeSeries } from "../../helpers/types";
+import { TimeSeries } from "../../utils/types";
 
 export interface SystemHealthCardProps {
   /**

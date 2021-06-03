@@ -1,7 +1,11 @@
 import React from "react";
+import { statusToColor } from "../../utils/helpers";
 import { BadgeProps } from "./Badge.types";
 
-export const Badge: React.FC<BadgeProps & React.HTMLAttributes<HTMLDivElement>> = ({ color, text, className, ...props  }) => {
+export const Badge: React.FC<BadgeProps & React.HTMLAttributes<HTMLDivElement>> = ({ color, text, className, ...props }) => {
+  if (!color)
+    color = statusToColor(text)
+
   let colorClass = "";
   switch (color) {
     case "blue":
