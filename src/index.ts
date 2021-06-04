@@ -1,6 +1,6 @@
 import { Button } from './components/Button/Button';
 import { AreaChart } from './components/AreaChart/AreaChart';
-import { SystemHealthCard } from './components/SystemHealthCard/SystemHealthCard';
+import { SystemHealthCard, SystemHealthCardWithLoading } from './components/SystemHealthCard/SystemHealthCard';
 import { Table, TableWithLoading } from './components/Table/Table';
 import { Badge } from './components/Badge/Badge';
 import { CardList, CardListWithLoading } from './components/CardList/CardList';
@@ -28,8 +28,8 @@ import './styles/global.css'
 
 export * from "./types";
 export {
-  Button, AreaChart, SystemHealthCard, Table, TableWithLoading, Badge, Card, CardList, CardListWithLoading,
-  DescriptionList, DescriptionListWithLoading, Icon, IconLink,
+  Button, AreaChart, SystemHealthCard, SystemHealthCardWithLoading, Table, TableWithLoading, 
+  Badge, Card, CardList, CardListWithLoading, DescriptionList, DescriptionListWithLoading, Icon, IconLink,
   Spinner, Input, Field, Form, Select, ControlledSelect, Modal, SectionTitle, Alert, Tabs, WithLoading,
   AccountSelection, Pagination, DataTable
 };

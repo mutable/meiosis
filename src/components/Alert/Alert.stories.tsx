@@ -27,5 +27,5 @@ export const WithTimeout = Template.bind({});
 WithTimeout.args = {
   type: "success",
   message: "This is a sample message",
-  timeout: 10000
+  timeout: 3000
 };

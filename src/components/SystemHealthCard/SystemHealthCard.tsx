@@ -2,6 +2,7 @@ import React from 'react';
 import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import { AreaChart } from '../AreaChart/AreaChart';
 import { SystemHealthCardProps } from './SystemHealthCard.types';
+import WithLoading from '../HOC/WithLoading/WithLoading';
 
 export const SystemHealthCard: React.FC<SystemHealthCardProps & React.HTMLAttributes<HTMLDivElement>> = ({
   data,
@@ -56,3 +57,5 @@ export const SystemHealthCard: React.FC<SystemHealthCardProps & React.HTMLAttrib
     </div>
   );
 }
+
+export const SystemHealthCardWithLoading= WithLoading(SystemHealthCard);
