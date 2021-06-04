@@ -58,7 +58,7 @@ export const Alert: React.FC<AlertProps & React.HTMLAttributes<HTMLDivElement>> 
           <div className="-mx-1.5 -my-1.5">
             <button
               type="button"
-              className="inline-flex bg-green-50 rounded-md p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-50 focus:ring-green-600"
+              className={`inline-flex bg-${colors}-50 rounded-md p-1.5 text-${colors}-500 hover:bg-${colors}-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-${colors}-50 focus:ring-${colors}-600`}
               onClick={() => { setShow(false) }}
             >
               <span className="sr-only">Dismiss</span>
