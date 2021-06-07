@@ -2,6 +2,7 @@ import { MouseEventHandler } from "react";
 import { IconType } from "../Icon/Icon.types";
 
 export type ButtonVariant = "primary" | "secondary" | "white" | "pink";
+export type TextAlign = "left" | "center" | "right";
 
 export interface ButtonProps {
   /**
@@ -22,4 +23,5 @@ export interface ButtonProps {
    * Show loading spinner 
    */
   loading?: boolean;
+  textAlign?: TextAlign;
 }

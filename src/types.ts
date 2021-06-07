@@ -1,6 +1,6 @@
 import { TimeSeries } from './utils/types';
 
-import { ButtonProps } from './components/Button/Button.types';
+import { ButtonProps, ButtonVariant, TextAlign } from './components/Button/Button.types';
 import { AreaChartProps } from './components/AreaChart/AreaChart.types';
 import { SystemHealthCardProps } from './components/SystemHealthCard/SystemHealthCard.types';
 import { TableProps } from './components/Table/Table.types';
@@ -29,5 +29,6 @@ export {
   CardListProps, DescriptionItemProps, DescriptionListProps, IconProps, IconLinkProps, SpinnerProps,
   InputProps, FieldProps, FormProps, SelectValue, SelectProps, ControlledSelectProps, ModalProps, Width,
   SectionTitleProps, AlertType, AlertProps, TabProps, TabsProps, AccountSelectionProps, PaginationProps,
-  DataTableProps, DataTableColumnProps, DataTableColumnType, SearchConfig, SortConfig, SortDirection, MultilineRow
+  DataTableProps, DataTableColumnProps, DataTableColumnType, SearchConfig, SortConfig, SortDirection, MultilineRow,
+  ButtonVariant, TextAlign
 };

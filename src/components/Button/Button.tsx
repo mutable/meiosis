@@ -12,6 +12,7 @@ export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButto
   loading,
   disabled,
   onClick,
+  textAlign = "left",
   className,
   ...props }) => {
   let styles = "";
@@ -36,6 +37,20 @@ export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButto
       break;
   }
 
+  let justify;
+  switch (textAlign) {
+    case "center":
+      justify = "justify-center";
+      break;
+    case "right":
+      justify = "justify-end";
+      break;
+    case "left":
+    default:
+      justify = "justify-start";
+      break;
+  }
+
   return (
     <button
       onClick={(e) => {
@@ -45,7 +60,7 @@ export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButto
         };
       }}
       disabled={loading ? true : disabled}
-      className={joinClassnames("inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md disabled:opacity-70", styles, className || "")}
+      className={joinClassnames("inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md disabled:opacity-70", styles, justify, className || "")}
       {...props}
     >
       {loading && <>
