@@ -31,8 +31,13 @@ export interface DataTableProps {
   columns: DataTableColumnProps[];
   rows: any[];
   onSearch?: (searchConfig: SearchConfig) => void;
+  /**
+   * By default all `sortable` columns support *in-view data sort*. 
+   * OnSort can be used to perform an *API call sort*.
+   */
+  onSort?: (sortConfig: SortConfig) => void;
   onRowClick?: (row: any, index: number) => void;
-  onColumnClick?: (column: any, index: number) => void;
+  onColumnClick?: (column: DataTableColumnProps, index: number) => void;
   selectable?: boolean;
   selectedRowIndex?: number;
   isLoading?: boolean;

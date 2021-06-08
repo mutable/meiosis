@@ -5,6 +5,7 @@ import { Pagination } from "../Pagination/Pagination";
 import { Button } from "../Button/Button";
 import { DataTableColumnProps, SearchConfig } from "./DataTable.types";
 import { SelectValue } from "../Select/Select.types";
+import useSortableData from "../customHooks/useSortableData";
 
 export default {
   title: "Visualizations/DataTable",
@@ -34,40 +35,41 @@ const rows = [
   { name: "loki-test-api", status: "Critical", details: { line1: "Server Unreachable in Midco Labs", line2: "MUT 2 Network Unreachable" }, tags: ["a", "b", "c"], containers: 4 },
 ];
 
+const applyFilters = (items, searchConfigs: SearchConfig[]) => {
+  if (!searchConfigs)
+    return items;
+
+  let filtered = items;
+
+  searchConfigs.forEach(searchConfig => {
+    if (searchConfig)
+      filtered = filtered.filter(row => {
+        const cell = row[searchConfig.key];
+
+        return !searchConfig.term || (cell &&
+          (
+            (cell.line1 && cell.line1.toLowerCase().includes(searchConfig.term)) || // if column type is "multiline"
+            (cell.line2 && cell.line2.toLowerCase().includes(searchConfig.term)) ||
+            (typeof cell === "string" && cell.toLowerCase().includes(searchConfig.term)) || // if column type is "string" or "badge"
+            (typeof cell === "number" && cell.toString().includes(searchConfig.term)) || // if column type is "number"
+            (Array.isArray(cell) && cell.some(item => item && typeof item === "string" && item.toLowerCase().includes(searchConfig.term))) // if column type is "badges"
+          )
+        )
+      })
+  })
+
+  return filtered;
+}
+
+const limit = 3;
+
+const applyPagination = (items, page) => {
+  return items.slice((page - 1) * limit, page * limit)
+}
+
 export const Default: Story = (args) => {
-  const limit = 3;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchConfigs, setSearchConfigs] = useState<SearchConfig[]>([]);
-
-  const applyFilters = (items, searchConfigs: SearchConfig[]) => {
-    if (!searchConfigs)
-      return items;
-
-    let filtered = items;
-
-    searchConfigs.forEach(searchConfig => {
-      if (searchConfig)
-        filtered = filtered.filter(row => {
-          const cell = row[searchConfig.key];
-
-          return !searchConfig.term || (cell &&
-            (
-              (cell.line1 && cell.line1.toLowerCase().includes(searchConfig.term)) || // if column type is "multiline"
-              (cell.line2 && cell.line2.toLowerCase().includes(searchConfig.term)) ||
-              (typeof cell === "string" && cell.toLowerCase().includes(searchConfig.term)) || // if column type is "string" or "badge"
-              (typeof cell === "number" && cell.toString().includes(searchConfig.term)) || // if column type is "number"
-              (Array.isArray(cell) && cell.some(item => item && typeof item === "string" && item.toLowerCase().includes(searchConfig.term))) // if column type is "badges"
-            )
-          )
-        })
-    })
-
-    return filtered;
-  }
-
-  const applyPagination = (items, page) => {
-    return items.slice((page - 1) * limit, page * limit)
-  }
 
   return (
     <div className="h-1/2">
@@ -89,7 +91,46 @@ export const Default: Story = (args) => {
       />
     </div>
   );
+}; 
+
+export const WithAPICallSort: Story = (args) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchConfigs, setSearchConfigs] = useState<SearchConfig[]>([]);
+
+  const { sortedItems, requestSort } = useSortableData(rows, null, null );
+
+  const sort = (sortConfig) => {
+    // perform the API sort request here
+    requestSort(sortConfig.key)
+  }
+  return (
+    <div className="h-1/2">
+      <DataTable
+        columns={columns}
+        rows={applyPagination(applyFilters(sortedItems, searchConfigs), currentPage)}
+        onSearch={(searchConfig: SearchConfig) => {
+          setCurrentPage(1);
+          setSearchConfigs([...searchConfigs.filter(item => item.key !== searchConfig.key), searchConfig]);
+        }}
+        onSort={sort}
+      />
+      <Pagination
+        currentPage={currentPage}
+        totalItems={applyFilters(sortedItems, searchConfigs).length}
+        pageLimit={3}
+        onPageChanged={(page) => {
+          setCurrentPage(page);
+        }}
+      />
+    </div>
+  );
 };
+
+WithAPICallSort.parameters = {
+  docs: {
+    storyDescription: "API call sort can be performed using `onSort` prop of `DataTable`"
+  }
+}
 
 export const Loading: Story = (args) => {
   return <DataTable

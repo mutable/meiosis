@@ -7,7 +7,11 @@ import { Select } from "../Select/Select";
 import { Spinner } from "../Spinner/Spinner";
 import { DataTableColumnProps, DataTableProps, SortConfig, SortDirection } from "./DataTable.types";
 import { statusToColor } from "../../utils/helpers";
+import useSortableData from "../customHooks/useSortableData";
 
+/**
+ * DataTable is an advanced table component that supports data sort and search.
+ */
 export const DataTable: React.FC<DataTableProps & React.HTMLAttributes<HTMLDivElement>> = ({
   columns,
   rows,
@@ -16,52 +20,11 @@ export const DataTable: React.FC<DataTableProps & React.HTMLAttributes<HTMLDivEl
   selectable,
   selectedRowIndex,
   onSearch,
+  onSort,
   isLoading = false,
   className, ...props }) => {
 
-  const [sortConfig, setSortConfig] = React.useState<SortConfig | null>(null);
-
-  const sortedRows = React.useMemo(() => {
-    let sortedRows = [...rows];
-
-    if (sortConfig !== null && sortConfig.key !== null) {
-      sortedRows.sort((a, b) => {
-        let val1 = a[sortConfig.key]?.line1 ? a[sortConfig.key].line1 : a[sortConfig.key];
-        let val2 = b[sortConfig.key]?.line1 ? b[sortConfig.key].line1 : b[sortConfig.key];
-
-        if (val1 < val2) {
-          return sortConfig.direction === 'ascending' ? -1 : 1;
-        }
-        if (val1 > val2) {
-          return sortConfig.direction === 'ascending' ? 1 : -1;
-        }
-
-        let subVal1 = a[sortConfig.key]?.line2;
-        let subVal2 = b[sortConfig.key]?.line2;
-
-        // in case of "multiline" values, sort by second line when first lines are equal
-        if (subVal1 && subVal2) {
-          if (subVal1 < subVal2) {
-            return sortConfig.direction === 'ascending' ? -1 : 1;
-          }
-          if (subVal1 > subVal2) {
-            return sortConfig.direction === 'ascending' ? 1 : -1;
-          }
-        }
-
-        return 0;
-      });
-    }
-    return sortedRows;
-  }, [rows, sortConfig]);
-
-  const requestSort = (key: string) => {
-    let direction: SortDirection = 'ascending';
-    if (sortConfig !== null && sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
-    }
-    setSortConfig({ key, direction });
-  }
+  const { sortedItems, requestSort } = useSortableData(rows, null, onSort);
 
   const cellContent = (col: DataTableColumnProps, row: any) => {
     const value = row[col.id];
@@ -160,7 +123,7 @@ export const DataTable: React.FC<DataTableProps & React.HTMLAttributes<HTMLDivEl
                 </tr>
               }
 
-              {!isLoading && sortedRows?.map((row: any, index) => {
+              {!isLoading && sortedItems?.map((row: any, index) => {
                 let accentColor;
                 if (selectable && selectedRowIndex === index)
                   accentColor = "bg-gray-200"
