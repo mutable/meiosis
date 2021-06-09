@@ -6,7 +6,7 @@ import { Field } from '../Field/Field';
 
 export default {
   title: "General/Input",
-  component: Input, 
+  component: Input,
 } as Meta;
 
 const Template: Story<InputProps> = (args) => <Input {...args} />;
@@ -19,18 +19,27 @@ Default.args = {
   disabled: false,
 };
 
+export const MultipleRows = Template.bind({});
+MultipleRows.args = {
+  type: "text",
+  placeholder: "Subject",
+  rows: 3,
+  invalid: false,
+  disabled: false,
+};
+
 export const WithFieldValidation: Story = (args) => {
   const [value, setValue] = useState('');
 
   return (
     <div>
-      <Field 
+      <Field
         type="text"
         label="Username"
         placeholder="mutineer"
         invalid={value === ''}
         error={'This input is required'}>
-        <Input value={value} onChange={(e) => setValue(e.currentTarget.value)} {...args} />
+        <Input value={value} onChange={(e) => setValue(e.currentTarget.value)} />
       </Field>
     </div>
   );
