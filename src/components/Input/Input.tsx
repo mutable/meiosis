@@ -16,7 +16,8 @@ export const Input = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, In
           aria-describedby="field"
         />}
 
-      {rows > 1 && <textarea  {...otherProps}
+      {rows > 1 && <textarea
+        {...otherProps}
         ref={ref as React.ForwardedRef<HTMLTextAreaElement>}
         className={`block w-full pr-10 focus:outline-none sm:text-sm rounded-md ${inputColors}`}
         aria-invalid="true"

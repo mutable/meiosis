@@ -1,9 +1,8 @@
-import { ChangeEvent } from "react";
-import { ButtonVariant } from "../Button/Button.types";
-
 export interface FileUploadProps {
-  onFileUpload: (event: ChangeEvent<HTMLInputElement>) => void;
-  /** Accepted file [extensions](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers) */
+  onFileUpload?: (files: File[]) => void;
+  /** A comma-separated list of unique file type specifiers, such as `.jpg`, `image/*` or a valid MIME type string, with no extensions. 
+   * More info: [Unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers). */
   accept?: string;
-  btnVariant: ButtonVariant;
+  multiple?: boolean;
+  invalid?: false;
 }

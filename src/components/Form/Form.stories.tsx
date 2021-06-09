@@ -7,6 +7,7 @@ import { Input } from '../Input/Input'
 import { Button } from '../Button/Button'
 import { ControlledSelect } from "../Select/ControlledSelect";
 import { SelectValue } from "../Select/Select.types";
+import { FileUpload } from "../FileUpload/FileUpload";
 
 export default {
   title: "Forms/Form",
@@ -33,7 +34,6 @@ const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
     <>
       <Field label="Full Name" invalid={!!errors.fullName} error="Full Name is required.">
         <Input
-          name="fullName"
           placeholder="Mut Ineer"
           type="text"
           {...register("fullName", { required: true })}
@@ -42,7 +42,6 @@ const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
 
       <Field label="Email" invalid={!!errors.email} error="Please enter a valid email.">
         <Input
-          name="email"
           placeholder="mutineer@mutable.io"
           type="text"
           {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} />
@@ -50,7 +49,6 @@ const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
 
       <Field label="Age" invalid={!!errors.age} error="Age should be between 18 and 99.">
         <Input
-          name="age"
           placeholder="20"
           type="number"
           {...register("age", { min: 18, max: 99 })} />
@@ -63,6 +61,15 @@ const Template: Story<FormProps<FormData>> = (args) => <Form {...args} >
           options={countries}
           defaultSelected={args.defaultValues ? countries[0] : undefined}
           rules={{ required: true }}
+        />
+      </Field>
+
+      <Field label="Attachments" invalid={!!errors.attachments} error="file.">
+        <FileUpload
+          {...register("attachments")}
+          accept="image/*,.pdf"
+          multiple={true}
+          onFileUpload={(data) => console.log(data)}
         />
       </Field>
 
