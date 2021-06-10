@@ -52,10 +52,10 @@ export const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps & R
           accept={accept}
           multiple={multiple}
           onChange={onChange}
-          className="h-0 w-0"
+          className="h-0 w-0 focus:outline-none opacity-0" // hide the default file input (can't use "display: none" since it causes form data to be empty)
         />
 
-        <div>
+        <div className="mt-2">
           {files.map((file, index) => (
             <div key={index}
               className="ml-2 text-sm font-medium text-gray-700"
