@@ -2,6 +2,7 @@ import React from "react";
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { DescriptionList } from "./DescriptionList";
 import { DescriptionListProps } from './DescriptionList.types'
+import { Button } from "../Button/Button";
 
 export default {
   title: "Visualizations/Description List",
@@ -13,7 +14,10 @@ const Template: Story<DescriptionListProps> = (args) => <DescriptionList {...arg
 const mockData = [
   {
     key: "Name",
-    value: "Pod 1"
+    value: <div className="flex">
+      Pod 1
+      <Button label="edit" className="ml-auto" iconBefore="edit" variant="pink" />
+    </div>
   }, {
     key: "Status",
     value: "Active",

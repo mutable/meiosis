@@ -25,6 +25,7 @@ export const DescriptionList: React.FC<DescriptionListProps & React.HTMLAttribut
           </li>
         )
       case "string":
+      case "reactElement":
       default:
         return descItem.value;
     }

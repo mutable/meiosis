@@ -1,8 +1,10 @@
-export type DescriptionItemType = "string" | "array" | "preformatted" | "badge";
+import React from "react";
+
+export type DescriptionItemType = "string" | "array" | "preformatted" | "badge" | "reactElement";
 
 export interface DescriptionItemProps {
   key: string;
-  value: string | string[] | object;
+  value: string | string[] | React.ReactElement | null;
   type?: DescriptionItemType;
 }
 
