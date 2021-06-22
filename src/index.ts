@@ -22,6 +22,8 @@ import { AccountSelection } from './components/AccountSelection/AccountSelection
 import { Pagination } from './components/Pagination/Pagination';
 import { DataTable } from './components/DataTable/DataTable';
 import { FileUpload } from './components/FileUpload/FileUpload';
+import { ReactSelect } from './components/ReactSelect/ReactSelect';
+import { ControlledReactSelect } from './components/ReactSelect/ControlledReactSelect';
 
 import WithLoading from "./components/HOC/WithLoading/WithLoading";
 
@@ -32,5 +34,5 @@ export {
   Button, AreaChart, SystemHealthCard, SystemHealthCardWithLoading, Table, TableWithLoading, 
   Badge, Card, CardList, CardListWithLoading, DescriptionList, DescriptionListWithLoading, Icon, IconLink,
   Spinner, Input, Field, Form, Select, ControlledSelect, Modal, SectionTitle, Alert, Tabs, WithLoading,
-  AccountSelection, Pagination, DataTable, FileUpload
+  AccountSelection, Pagination, DataTable, FileUpload, ReactSelect, ControlledReactSelect
 };
