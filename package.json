@@ -1,6 +1,6 @@
 {
   "name": "@mutable/meiosis",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "Meiosis is the Design System for Mutable Products and Websites",
   "main": "build/index.js",
   "module": "build/index.es.js",
