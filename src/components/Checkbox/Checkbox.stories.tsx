@@ -7,7 +7,7 @@ import { Field } from "../Field/Field";
 import { Button } from "../Button/Button";
 
 export default {
-  title: "Checkbox",
+  title: "General/Checkbox",
   component: Checkbox
 } as Meta;
 

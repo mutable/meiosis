@@ -8,7 +8,7 @@ import { ControlledToggle } from "./ControlledToggle";
 import { Button } from "../Button/Button";
 
 export default {
-  title: "Toggle",
+  title: "General/Toggle",
   component: Toggle
 } as Meta;
 

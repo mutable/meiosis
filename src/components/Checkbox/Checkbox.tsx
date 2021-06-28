@@ -1,10 +1,11 @@
 import React, { InputHTMLAttributes } from "react";
+import { joinClassnames } from "../../utils/tailwindHelpers";
 import { CheckboxProps } from "./Checkbox.types";
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps & InputHTMLAttributes<HTMLInputElement>>(({
   defaultOption, label, className, ...otherProps }, ref) => {
   return (
-    <div className="flex mt-6">
+    <div className={joinClassnames("flex", className || "")}>
       <label className="flex items-center">
         <input
           {...otherProps}
@@ -14,6 +15,6 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps & Input
           ref={ref as React.ForwardedRef<HTMLInputElement>} />
         <span className="ml-2">{label}</span>
       </label>
-    </div>
+    </div >
   );
 });
