@@ -26,6 +26,9 @@ import { DataTableProps, DataTableColumnProps, DataTableColumnType, SearchConfig
 import { FileUploadProps } from './components/FileUpload/FileUpload.types';
 import { ReactSelectProps } from './components/ReactSelect/ReactSelect.types';
 import { ControlledReactSelectProps } from './components/ReactSelect/ControlledReactSelect.types';
+import { ControlledToggleProps } from './components/Toggle/ControlledToggle.types';
+import { ToggleProps } from './components/Toggle/Toggle.types';
+import { CheckboxProps } from './components/Checkbox/Checkbox.types';
 
 export {
   TimeSeries, ButtonProps, AreaChartProps, SystemHealthCardProps, TableProps, BadgeProps, CardProps,
@@ -33,5 +36,6 @@ export {
   InputProps, FieldProps, FormProps, SelectValue, SelectProps, ControlledSelectProps, ModalProps, Width,
   SectionTitleProps, AlertType, AlertProps, TabProps, TabsProps, AccountSelectionProps, PaginationProps,
   DataTableProps, DataTableColumnProps, DataTableColumnType, SearchConfig, SortConfig, SortDirection, MultilineRow,
-  ButtonVariant, TextAlign, FileUploadProps, ReactSelectProps, ControlledReactSelectProps
+  ButtonVariant, TextAlign, FileUploadProps, ReactSelectProps, ControlledReactSelectProps, ToggleProps, ControlledToggleProps,
+  CheckboxProps
 };
